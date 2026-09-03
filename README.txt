@@ -19,3 +19,5 @@ PARA O FORMULÁRIO FUNCIONAR EM PRODUÇÃO:
 5. Fazer um envio real de teste para confirmar receção em geral@avyena.pt.
 
 Nota: sem RESEND_API_KEY, o site abre normalmente, mas o endpoint devolve aviso de que o serviço de email ainda não está configurado.
+
+Deploy AVYENA Digital
