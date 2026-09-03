@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "contact.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "styles.css", "use": "@vercel/static" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "*.png", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/contact", "dest": "/contact.js" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}

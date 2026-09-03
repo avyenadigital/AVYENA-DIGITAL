@@ -76,3 +76,35 @@ function draw(){
   requestAnimationFrame(draw);
 }
 draw();
+
+/* PT / EN — tradução local, sem serviços externos */
+(() => {
+  const btn = document.getElementById('langToggle');
+  if (!btn) return;
+  const pairs = [
+    ['Início','Home'],['Serviços','Services'],['Processo','Process'],['Compromisso','Commitment'],['Para quem','Who we help'],['Contacto','Contact'],['Fala connosco','Talk to us'],
+    ['Presença digital.','Digital presence.'],['Resultados reais.','Real results.'],['Conectamos ideias.','We connect ideas.'],['Criamos impacto.','We create impact.'],
+    ['Ajudamos negócios em todo o território português a ganhar visibilidade, atrair clientes e crescer no digital com estratégia, criatividade e foco em resultados.','We help businesses across Portugal gain visibility, attract customers and grow digitally through strategy, creativity and a focus on results.'],
+    ['Ver o que fazemos','See our services'],['Como trabalhamos','How we work'],['Explorar','Explore'],['Os nossos serviços','Our services'],['Tudo o que a tua marca precisa.','Everything your brand needs.'],['Soluções integradas para negócios que querem ser encontrados, lembrados e escolhidos.','Integrated solutions for businesses that want to be found, remembered and chosen.'],
+    ['Gestão de Redes Sociais','Social Media Management'],['Google Business & Presença Local','Google Business & Local Presence'],['Soluções Digitais & Experiência','Digital Solutions & Experience'],['Websites & Landing Pages','Websites & Landing Pages'],['Branding & Identidade Visual','Branding & Visual Identity'],['Estratégia & Crescimento','Strategy & Growth'],
+    ['Simples. Eficaz. Com resultado.','Simple. Effective. Results-driven.'],['Analisamos','We analyse'],['Planeamos','We plan'],['Produzimos','We create'],['Evoluímos','We evolve'],
+    ['O que podes esperar da AVYENA','What you can expect from AVYENA'],['Estratégia adaptada','Tailored strategy'],['Comunicação próxima','Close communication'],['Soluções práticas','Practical solutions'],['Acompanhamento contínuo','Continuous support'],
+    ['Restauração & Bares','Restaurants & Bars'],['Comércio & Serviços','Retail & Services'],['Turismo & Alojamento','Tourism & Accommodation'],['Marcas em crescimento','Growing Brands'],['Pensado para negócios reais','Built for real businesses'],['Digital com os pés no negócio.','Digital grounded in business.'],
+    ['Perguntas frequentes','Frequently asked questions'],['Começar é simples.','Getting started is simple.'],['Conta-nos o que queres melhorar.','Tell us what you want to improve.'],['Enviar pedido','Send request'],['Nome / Empresa','Name / Company'],['Telefone','Phone'],['Localização','Location'],['O que procuras?','What are you looking for?'],['Fala-nos do projeto','Tell us about your project'],['Seleciona uma opção','Select an option'],['Vários serviços','Multiple services'],['Voltar ao topo ↑','Back to top ↑'],['Todos os direitos reservados.','All rights reserved.']
+  ];
+  const ptToEn = new Map(pairs), enToPt = new Map(pairs.map(([a,b])=>[b,a]));
+  const translateText = (map) => {
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n=>{ const raw=n.nodeValue, t=raw.trim(); if(map.has(t)) n.nodeValue=raw.replace(t,map.get(t)); });
+    document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
+      const v=el.getAttribute('placeholder'); const m=map.get(v); if(m) el.setAttribute('placeholder',m);
+    });
+    document.querySelectorAll('option').forEach(el=>{ const t=el.textContent.trim(); if(map.has(t)) el.textContent=map.get(t); });
+  };
+  let lang='pt';
+  btn.addEventListener('click',()=>{
+    if(lang==='pt'){ translateText(ptToEn); lang='en'; btn.innerHTML='🇵🇹 <span>PT</span>'; btn.setAttribute('aria-label','Mudar para Português'); document.documentElement.lang='en'; }
+    else { translateText(enToPt); lang='pt'; btn.innerHTML='🇬🇧 <span>EN</span>'; btn.setAttribute('aria-label','Switch to English'); document.documentElement.lang='pt-PT'; }
+  });
+})();
