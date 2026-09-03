@@ -72,12 +72,12 @@ const applyLang = () => {
     const key = el.dataset.i18nPlaceholder;
     if (dict[key]) el.setAttribute('placeholder', dict[key]);
   });
-  document.getElementById('langCode').textContent = lang === 'pt' ? 'EN' : 'PT';
+  document.getElementById('langCode').textContent = lang === 'pt' ? 'PT' : 'EN';
   const flagUK = document.getElementById('flagUK');
   const flagPT = document.getElementById('flagPT');
   if (flagUK && flagPT) {
-    flagUK.hidden = lang !== 'pt';
-    flagPT.hidden = lang === 'pt';
+    flagUK.hidden = lang === 'pt';
+    flagPT.hidden = lang !== 'pt';
   }
   langBtn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para Português');
 };
