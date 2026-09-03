@@ -31,7 +31,7 @@
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
       <div class="header-actions">
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English"><span class="flag">🇬🇧</span><span id="langCode">EN</span><span class="chev">⌄</span></button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English"><img class="flag-img" id="langFlag" src="flag-uk.svg" alt="English"><span id="langCode">EN</span><span class="chev">⌄</span></button>
         <a class="pill pill-outline" href="#contacto"><span data-i18n="cta.talk">Falar Connosco</span><span>→</span></a>
       </div>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
@@ -78,7 +78,8 @@
           <article class="service-card reveal"><div class="neon-icon">▦</div><h3 data-i18n="services.digital.title">Soluções Digitais & Experiência</h3><p data-i18n="services.digital.copy">Menus digitais, QR Codes, reservas, pedidos e outras soluções que tornam a experiência do cliente mais prática e moderna.</p><span class="card-arrow">→</span></article>
           <article class="service-card reveal"><div class="neon-icon">▣</div><h3 data-i18n="services.web.title">Websites & Landing Pages</h3><p data-i18n="services.web.copy">Sites rápidos, responsivos e otimizados para converter visitantes em clientes e destacar o seu negócio.</p><span class="card-arrow">→</span></article>
           <article class="service-card reveal"><div class="neon-icon">✒</div><h3 data-i18n="services.brand.title">Branding & Identidade Visual</h3><p data-i18n="services.brand.copy">Criamos marcas memoráveis com identidade visual forte, coerente e alinhada ao posicionamento do negócio.</p><span class="card-arrow">→</span></article>
-          <article class="service-card reveal"><div class="neon-icon">▥</div><h3 data-i18n="services.growth.title">Estratégia & Crescimento</h3><p data-i18n="services.growth.copy">Analisamos, planeamos e implementamos ações que geram crescimento sustentável e previsível.</p><span class="card-arrow">→</span></article>
+          <article class="service-card reveal"><div class="neon-icon">⌕</div><h3 data-i18n="services.seo.title">SEO & Visibilidade Online</h3><p data-i18n="services.seo.copy">Otimização para Google, SEO local e estratégia de conteúdo para aumentar a visibilidade orgânica do seu negócio.</p><span class="card-arrow">→</span></article>
+          <article class="service-card reveal"><div class="neon-icon">↗</div><h3 data-i18n="services.ads.title">Publicidade Digital</h3><p data-i18n="services.ads.copy">Campanhas Google e Meta orientadas para aumentar visibilidade, gerar contactos e apoiar o crescimento do seu negócio.</p><span class="card-arrow">→</span></article>
         </div>
       </div>
     </section>
@@ -123,7 +124,7 @@
     <section class="section cta-section">
       <div class="container cta-panel reveal">
         <div class="cta-icon">💬</div>
-        <div><h2 data-i18n="cta.title">Pronto para levar o seu negócio ao próximo nível?</h2><p data-i18n="cta.copy">Fale connosco e descubra como podemos criar impacto na sua marca.</p></div>
+        <div><h2 data-i18n="cta.title">Não sabe por onde começar?</h2><p data-i18n="cta.copy">Analisamos a sua presença digital e identificamos oportunidades de melhoria — website, Google, redes sociais, imagem ou processos digitais.</p></div>
         <a class="pill pill-light" href="#contacto"><span data-i18n="cta.talk">Falar Connosco</span><span>→</span></a>
       </div>
     </section>
@@ -132,8 +133,10 @@
       <div class="container contact-grid">
         <div class="contact-brand reveal">
           <img src="avyena-logo.png" alt="AVYENA Digital">
-          <div class="social-row" aria-label="Redes sociais">
-            <span>◎</span><span>f</span><span>◉</span><span>in</span>
+          <div class="social-row" aria-label="Instagram">
+            <a class="instagram-link" href="https://www.instagram.com/avyena.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram AVYENA Digital">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.7" r="1.15" fill="currentColor"/></svg>
+            </a>
           </div>
         </div>
 
@@ -152,7 +155,8 @@
             <option data-i18n="services.digital.title">Soluções Digitais & Experiência</option>
             <option data-i18n="services.web.title">Websites & Landing Pages</option>
             <option data-i18n="services.brand.title">Branding & Identidade Visual</option>
-            <option data-i18n="services.growth.title">Estratégia & Crescimento</option>
+            <option data-i18n="services.seo.title">SEO & Visibilidade Online</option>
+            <option data-i18n="services.ads.title">Publicidade Digital</option>
           </select></label>
           <label><span class="sr-only" data-i18n="form.message">Mensagem</span><textarea name="mensagem" required placeholder="Mensagem" data-i18n-placeholder="form.message"></textarea></label>
           <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>

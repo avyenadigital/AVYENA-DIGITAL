@@ -1,29 +1,17 @@
-AVYENA DIGITAL — MASTER FINAL (FLAT)
+AVYENA DIGITAL — VERSÃO FINAL 2026
 
-Todos os ficheiros estão na raiz, sem pastas, para upload simples no GitHub.
+Ficheiros prontos para publicação no GitHub/Vercel, todos na raiz do repositório.
 
-Conteúdo principal:
-- index.html
-- styles.css
-- app.js
-- contact.js
-- vercel.json
-- avyena-logo.png
-- avyena-symbol.png
-- favicon.png
-- restauracao.jpg
-- comercio.jpg
-- turismo.jpg
-- marcas.jpg
+Inclui:
+- Visual dark/neon aprovado
+- 7 serviços: Redes Sociais, Google Business, Soluções Digitais, Websites, Branding, SEO e Publicidade Digital
+- Secções Processo, Compromisso, Públicos e contacto
+- Cartões de públicos com imagens centradas e overlay uniforme
+- Tradução editorial completa PT-PT / English (UK)
+- Bandeiras locais PT/UK no seletor de idioma
+- Apenas Instagram no rodapé, ligado a @avyena.digital
+- Contactos: geral@avyena.pt | +351 962 434 680 | Portugal
+- Formulário sem mailto; endpoint /api/contact via contact.js
 
-Configuração do formulário no Vercel:
-1) Criar a variável de ambiente RESEND_API_KEY.
-2) Opcional: CONTACT_FROM com um remetente validado no Resend.
-3) O destino do formulário é geral@avyena.pt.
-
-Notas finais:
-- Sem mailto no formulário.
-- PT/EN no topo.
-- Localização: Portugal.
-- Telefone: +351 962 434 680 (apenas chamada, sem WhatsApp).
-- O slogan não é repetido como texto no hero; aparece apenas dentro do logótipo.
+VERCEL / FORMULÁRIO
+Para o formulário enviar mensagens é necessário configurar RESEND_API_KEY nas Environment Variables do Vercel e voltar a fazer deploy. CONTACT_FROM é opcional após validação do domínio no Resend.
