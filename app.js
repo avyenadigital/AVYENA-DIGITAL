@@ -81,23 +81,14 @@ const applyLang = () => {
   const langCode = document.getElementById('langCode');
   const pageIsPT = lang === 'pt';
 
-  // The selector shows the language the visitor can switch TO:
-  // Portuguese page -> UK flag + EN
-  // English page    -> Portugal flag + PT
-  if (langCode) langCode.textContent = pageIsPT ? 'EN' : 'PT';
-
+  if (langCode) langCode.textContent = pageIsPT ? 'PT' : 'EN';
   if (flagUK && flagPT) {
-    flagUK.hidden = !pageIsPT;
-    flagPT.hidden = pageIsPT;
-    flagUK.style.display = pageIsPT ? 'block' : 'none';
-    flagPT.style.display = pageIsPT ? 'none' : 'block';
-    flagUK.setAttribute('aria-hidden', String(!pageIsPT));
-    flagPT.setAttribute('aria-hidden', String(pageIsPT));
+    flagPT.hidden = !pageIsPT;
+    flagUK.hidden = pageIsPT;
   }
-
   if (langBtn) {
-    langBtn.setAttribute('aria-label', pageIsPT ? 'Switch to English' : 'Mudar para Português');
-    langBtn.setAttribute('title', pageIsPT ? 'English' : 'Português');
+    langBtn.setAttribute('aria-label', pageIsPT ? 'Mudar para Inglês' : 'Switch to Portuguese');
+    langBtn.setAttribute('title', pageIsPT ? 'Português' : 'English');
   }
 };
 langBtn?.addEventListener('click', () => {

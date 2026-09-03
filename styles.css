@@ -10,3 +10,13 @@
 @media(max-width:640px){.container{width:min(100% - 22px,560px)}.header-inner{height:68px}.brand img{width:170px;height:58px}.lang-toggle{padding:0 10px}.hero h1{letter-spacing:-2px}.hero-copy{font-size:17px}.hero-values{gap:10px}.hero-values span{font-size:15px;padding-right:12px;margin-right:0}.service-grid,.process-grid,.promise-grid,.audience-grid{grid-template-columns:1fr}.promise-grid article{border-right:0;border-bottom:1px solid rgba(104,132,195,.2)}.promise-grid article:last-child{border-bottom:0}.section{padding:28px 0}.form-grid{grid-template-columns:1fr}.cta-panel{grid-template-columns:1fr}.cta-icon{display:none}.footer-inner{flex-direction:column}.footer-inner div{flex-wrap:wrap}.to-top{width:44px;height:44px;right:14px;bottom:14px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 .flag-wrap{width:24px;height:16px;display:inline-flex;align-items:center;justify-content:center;flex:none}.flag-svg{width:24px;height:16px;display:block;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.16)}.flag-svg[hidden]{display:none!important}
+
+/* AVYENA V6 — bandeiras locais desenhadas em CSS */
+.flag-wrap{display:inline-flex;align-items:center;justify-content:center;width:25px;height:17px}
+.lang-flag{display:block;width:24px;height:16px;border-radius:2px;position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.24)}
+.lang-flag[hidden]{display:none!important}
+.flag-pt{background:linear-gradient(90deg,#046a38 0 40%,#da291c 40% 100%)}
+.flag-pt:after{content:"";position:absolute;left:8px;top:5px;width:6px;height:6px;border:1.5px solid #ffd700;border-radius:50%;box-sizing:border-box}
+.flag-uk{background:#012169}
+.flag-uk:before{content:"";position:absolute;inset:-7px;background:linear-gradient(33deg,transparent 43%,#fff 43% 48%,#c8102e 48% 52%,#fff 52% 57%,transparent 57%),linear-gradient(-33deg,transparent 43%,#fff 43% 48%,#c8102e 48% 52%,#fff 52% 57%,transparent 57%)}
+.flag-uk:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 38%,#fff 38% 62%,transparent 62%),linear-gradient(0deg,transparent 32%,#fff 32% 68%,transparent 68%),linear-gradient(90deg,transparent 44%,#c8102e 44% 56%,transparent 56%),linear-gradient(0deg,transparent 40%,#c8102e 40% 60%,transparent 60%)}
