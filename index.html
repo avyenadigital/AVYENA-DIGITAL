@@ -31,7 +31,13 @@
         <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       </nav>
       <div class="header-actions">
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English"><img class="flag-img" id="langFlag" src="flag-uk.svg" alt="English"><span id="langCode">EN</span><span class="chev">⌄</span></button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English">
+          <span class="flag-wrap" aria-hidden="true">
+            <svg class="flag-svg" id="flagUK" viewBox="0 0 60 36" role="img"><rect width="60" height="36" rx="2" fill="#012169"/><path d="M0 0L60 36M60 0L0 36" stroke="#fff" stroke-width="7"/><path d="M0 0L60 36M60 0L0 36" stroke="#C8102E" stroke-width="4"/><path d="M30 0V36M0 18H60" stroke="#fff" stroke-width="12"/><path d="M30 0V36M0 18H60" stroke="#C8102E" stroke-width="7"/></svg>
+            <svg class="flag-svg" id="flagPT" viewBox="0 0 60 36" role="img" hidden><rect width="24" height="36" rx="2" fill="#046A38"/><rect x="24" width="36" height="36" rx="2" fill="#DA291C"/><circle cx="24" cy="18" r="6.4" fill="#FFCD00"/><circle cx="24" cy="18" r="4.5" fill="#fff"/><path d="M20.8 15.5h6.4v5h-6.4z" fill="#DA291C"/><path d="M24 15.5v5M20.8 18h6.4" stroke="#046A38" stroke-width=".8"/></svg>
+          </span>
+          <span id="langCode">EN</span><span class="chev">⌄</span>
+        </button>
         <a class="pill pill-outline" href="#contacto"><span data-i18n="cta.talk">Falar Connosco</span><span>→</span></a>
       </div>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
@@ -121,14 +127,6 @@
       </div>
     </section>
 
-    <section class="section cta-section">
-      <div class="container cta-panel reveal">
-        <div class="cta-icon">💬</div>
-        <div><h2 data-i18n="cta.title">Não sabe por onde começar?</h2><p data-i18n="cta.copy">Analisamos a sua presença digital e identificamos oportunidades de melhoria — website, Google, redes sociais, imagem ou processos digitais.</p></div>
-        <a class="pill pill-light" href="#contacto"><span data-i18n="cta.talk">Falar Connosco</span><span>→</span></a>
-      </div>
-    </section>
-
     <section class="contact-section" id="contacto">
       <div class="container contact-grid">
         <div class="contact-brand reveal">
@@ -141,6 +139,7 @@
         </div>
 
         <form class="contact-form reveal" id="contactForm" novalidate>
+          <p class="form-intro" data-i18n="form.intro">Analisamos a sua presença digital e identificamos oportunidades de melhoria no seu website, Google, redes sociais, imagem ou processos digitais.</p>
           <h3 data-i18n="form.title">ENVIE-NOS UMA MENSAGEM</h3>
           <div class="form-grid">
             <label><span class="sr-only" data-i18n="form.name">Nome</span><input name="nome" required placeholder="Nome" data-i18n-placeholder="form.name"></label>

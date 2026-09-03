@@ -15,3 +15,5 @@ Inclui:
 
 VERCEL / FORMULÁRIO
 Para o formulário enviar mensagens é necessário configurar RESEND_API_KEY nas Environment Variables do Vercel e voltar a fazer deploy. CONTACT_FROM é opcional após validação do domínio no Resend.
+
+V2: removido o banner “Não sabe por onde começar?”. O texto de diagnóstico foi integrado no topo do formulário, seguido de “ENVIE-NOS UMA MENSAGEM” em maior destaque.
