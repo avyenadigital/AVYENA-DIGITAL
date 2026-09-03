@@ -60,6 +60,10 @@ const translations = {
   }
 };
 let lang = 'pt';
+try {
+  const savedLang = localStorage.getItem('avyena_lang');
+  if (savedLang === 'pt' || savedLang === 'en') lang = savedLang;
+} catch (_) {}
 const langBtn = document.getElementById('langToggle');
 const applyLang = () => {
   const dict = translations[lang];
@@ -72,16 +76,38 @@ const applyLang = () => {
     const key = el.dataset.i18nPlaceholder;
     if (dict[key]) el.setAttribute('placeholder', dict[key]);
   });
-  document.getElementById('langCode').textContent = lang === 'pt' ? 'PT' : 'EN';
   const flagUK = document.getElementById('flagUK');
   const flagPT = document.getElementById('flagPT');
+  const langCode = document.getElementById('langCode');
+  const pageIsPT = lang === 'pt';
+
+  // The selector shows the language the visitor can switch TO:
+  // Portuguese page -> UK flag + EN
+  // English page    -> Portugal flag + PT
+  if (langCode) langCode.textContent = pageIsPT ? 'EN' : 'PT';
+
   if (flagUK && flagPT) {
-    flagUK.hidden = lang === 'pt';
-    flagPT.hidden = lang !== 'pt';
+    flagUK.hidden = !pageIsPT;
+    flagPT.hidden = pageIsPT;
+    flagUK.style.display = pageIsPT ? 'block' : 'none';
+    flagPT.style.display = pageIsPT ? 'none' : 'block';
+    flagUK.setAttribute('aria-hidden', String(!pageIsPT));
+    flagPT.setAttribute('aria-hidden', String(pageIsPT));
   }
-  langBtn.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para Português');
+
+  if (langBtn) {
+    langBtn.setAttribute('aria-label', pageIsPT ? 'Switch to English' : 'Mudar para Português');
+    langBtn.setAttribute('title', pageIsPT ? 'English' : 'Português');
+  }
 };
-langBtn?.addEventListener('click', () => { lang = lang === 'pt' ? 'en' : 'pt'; applyLang(); });
+langBtn?.addEventListener('click', () => {
+  lang = lang === 'pt' ? 'en' : 'pt';
+  try { localStorage.setItem('avyena_lang', lang); } catch (_) {}
+  applyLang();
+});
+
+// Apply the correct language and flag immediately on first load.
+applyLang();
 
 const form = document.getElementById('contactForm');
 const note = document.getElementById('formNote');
