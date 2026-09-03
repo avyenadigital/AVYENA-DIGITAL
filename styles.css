@@ -52,3 +52,21 @@
 
 .flag-pt,.flag-uk{background:none!important}
 .flag-pt:before,.flag-pt:after,.flag-uk:before,.flag-uk:after{content:none!important}
+
+/* AVYENA V8 — bandeiras PNG reais, ficheiros locais */
+.flag-wrap{
+  width:27px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 27px;
+}
+.lang-flag-img{
+  width:27px;
+  height:18px;
+  display:block;
+  object-fit:cover;
+  border-radius:3px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.22),0 4px 12px rgba(0,0,0,.28);
+}

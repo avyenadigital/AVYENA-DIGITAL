@@ -76,15 +76,14 @@ const applyLang = () => {
     const key = el.dataset.i18nPlaceholder;
     if (dict[key]) el.setAttribute('placeholder', dict[key]);
   });
-  const flagUK = document.getElementById('flagUK');
-  const flagPT = document.getElementById('flagPT');
+  const langFlag = document.getElementById('langFlag');
   const langCode = document.getElementById('langCode');
   const pageIsPT = lang === 'pt';
 
   if (langCode) langCode.textContent = pageIsPT ? 'PT' : 'EN';
-  if (flagUK && flagPT) {
-    flagPT.hidden = !pageIsPT;
-    flagUK.hidden = pageIsPT;
+  if (langFlag) {
+    langFlag.src = pageIsPT ? 'flag-pt.png' : 'flag-uk.png';
+    langFlag.alt = pageIsPT ? 'Bandeira de Portugal' : 'United Kingdom flag';
   }
   if (langBtn) {
     langBtn.setAttribute('aria-label', pageIsPT ? 'Mudar para Inglês' : 'Switch to Portuguese');
