@@ -20,3 +20,35 @@
 .flag-uk{background:#012169}
 .flag-uk:before{content:"";position:absolute;inset:-7px;background:linear-gradient(33deg,transparent 43%,#fff 43% 48%,#c8102e 48% 52%,#fff 52% 57%,transparent 57%),linear-gradient(-33deg,transparent 43%,#fff 43% 48%,#c8102e 48% 52%,#fff 52% 57%,transparent 57%)}
 .flag-uk:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 38%,#fff 38% 62%,transparent 62%),linear-gradient(0deg,transparent 32%,#fff 32% 68%,transparent 68%),linear-gradient(90deg,transparent 44%,#c8102e 44% 56%,transparent 56%),linear-gradient(0deg,transparent 40%,#c8102e 40% 60%,transparent 60%)}
+
+/* AVYENA V7 — bandeiras premium inline SVG */
+.lang-switch{
+  gap:9px;
+}
+.flag-wrap{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:20px;
+}
+.lang-flag-svg{
+  width:26px;
+  height:18px;
+  display:block;
+  border-radius:3px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.22),
+    0 4px 12px rgba(0,0,0,.28);
+}
+.lang-flag-svg[hidden]{display:none!important;}
+.lang-switch:hover .lang-flag-svg{
+  transform:translateY(-1px);
+}
+.lang-flag-svg{
+  transition:transform .18s ease, filter .18s ease;
+  filter:saturate(1.08) contrast(1.03);
+}
+
+.flag-pt,.flag-uk{background:none!important}
+.flag-pt:before,.flag-pt:after,.flag-uk:before,.flag-uk:after{content:none!important}
