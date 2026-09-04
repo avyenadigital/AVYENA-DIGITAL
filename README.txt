@@ -31,3 +31,13 @@ V5 — CORREÇÃO DEFINITIVA DO SELETOR DE IDIOMA
 - Novo clique: regressa a Português e o botão volta a 🇬🇧 EN
 - Estado aplicado logo no carregamento inicial
 - Bandeiras incorporadas no HTML, sem dependência de ficheiros externos
+
+AVYENA V9 — SEGURANÇA E ICONOGRAFIA
+- Substituídos os emojis dos dois primeiros cartões por SVG outline neon, coerentes com os restantes ícones.
+- CSP restritiva, proteção anti-iframe, nosniff, HSTS, Permissions-Policy, COOP/CORP e política de referrer.
+- Removidos estilos inline usados nas imagens de audiência para permitir style-src 'self'.
+- Formulário endurecido com limites de tamanho, validação server-side, honeypot, allowlist de serviços, verificação de Origin/Sec-Fetch-Site e cabeçalho same-origin.
+- Resposta do Resend deixa de expor detalhes internos ao browser e passa a ter timeout.
+- RESEND_API_KEY e CONTACT_FROM devem continuar apenas nas Environment Variables da Vercel, nunca no GitHub/frontend.
+- Opcional recomendado: configurar Rate Limiting / WAF na Vercel para /api/contact. Rate limiting apenas em memória numa serverless function não é proteção fiável.
+- Se usar um domínio extra/preview para testar o formulário, adicionar esse origin à variável CONTACT_ALLOWED_ORIGINS, separado por vírgulas.

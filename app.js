@@ -37,8 +37,8 @@ const translations = {
     'promise.kicker':'O QUE PODE ESPERAR DA AVYENA','promise.1.title':'Estratégia adaptada ao seu negócio','promise.1.copy':'Nada de soluções genéricas. Cada plano é desenvolvido à medida dos seus objetivos e da realidade do seu negócio.','promise.2.title':'Comunicação próxima e transparente','promise.2.copy':'Mantemos uma comunicação próxima, explicamos tudo de forma simples e trabalhamos consigo em cada etapa.','promise.3.title':'Soluções práticas, sem complicações','promise.3.copy':'Focamo-nos no que realmente importa e pode criar valor para o seu negócio.','promise.4.title':'Acompanhamento contínuo','promise.4.copy':'Monitorizamos resultados, otimizamos e evoluímos consigo ao longo do processo.',
     'audience.kicker':'PARA QUEM TRABALHAMOS','audience.1.title':'Restauração & Bares','audience.1.copy':'Restaurantes, cafés, pastelarias, bares, gelatarias e muito mais.','audience.2.title':'Comércio & Serviços','audience.2.copy':'Lojas, salões, clínicas, oficinas, imobiliárias e negócios locais.','audience.3.title':'Turismo & Alojamento','audience.3.copy':'Alojamento local, hotéis, villas, experiências e atividades turísticas.','audience.4.title':'Marcas em Crescimento','audience.4.copy':'Negócios que querem profissionalizar a presença digital e escalar.',
     'cta.title':'Não sabe por onde começar?','cta.copy':'Analisamos a sua presença digital e identificamos oportunidades de melhoria — website, Google, redes sociais, imagem ou processos digitais.',
-    'form.intro':'Analisamos a sua presença digital e identificamos oportunidades de melhoria no seu website, Google, redes sociais, imagem ou processos digitais.','form.title':'ENVIE-NOS UMA MENSAGEM','form.name':'Nome','form.company':'Empresa','form.phone':'Telefone','form.service':'Serviço de interesse','form.message':'Mensagem','form.submit':'Enviar mensagem',
-    'contact.title':'VAMOS CONVERSAR','contact.location':'Portugal','contact.hours':'Seg - Sex: 09h00 - 18h00','footer.rights':'Todos os direitos reservados.','footer.privacy':'Política de Privacidade','footer.terms':'Termos de Utilização'
+    'form.intro':'Analisamos a sua presença digital e identificamos oportunidades de melhoria no seu website, Google, redes sociais, imagem ou processos digitais.','form.title':'ENVIE-NOS UMA MENSAGEM','form.name':'Nome','form.company':'Empresa','form.phone':'Telefone','form.service':'Serviço de interesse','form.message':'Mensagem','form.submit':'Enviar mensagem','form.privacy':'Ao enviar esta mensagem, os dados indicados serão utilizados apenas para responder ao seu pedido. Consulte a nossa Política de Privacidade e Cookies.',
+    'contact.title':'VAMOS CONVERSAR','contact.location':'Portugal','contact.hours':'Seg - Sex: 09h00 - 18h00','footer.rights':'Todos os direitos reservados.','footer.privacy':'Privacidade & Cookies','footer.terms':'Termos de Utilização'
   },
   en: {
     'nav.home':'Home','nav.services':'Services','nav.process':'Process','nav.about':'About','nav.contact':'Contact',
@@ -55,8 +55,8 @@ const translations = {
     'promise.kicker':'WHAT YOU CAN EXPECT FROM AVYENA','promise.1.title':'A strategy tailored to your business','promise.1.copy':'No generic solutions. Every plan is shaped around your goals and reality.','promise.2.title':'Close, transparent communication','promise.2.copy':'We stay available, explain things clearly and work alongside you.','promise.3.title':'Practical solutions, no unnecessary complexity','promise.3.copy':'We focus on what matters and creates real value for your business.','promise.4.title':'Continuous support','promise.4.copy':'We monitor results, optimise and evolve with you at every step.',
     'audience.kicker':'WHO WE WORK WITH','audience.1.title':'Restaurants & Bars','audience.1.copy':'Restaurants, cafés, bakeries, bars, ice-cream shops and more.','audience.2.title':'Retail & Services','audience.2.copy':'Shops, salons, clinics, workshops, real estate and local businesses.','audience.3.title':'Tourism & Accommodation','audience.3.copy':'Local accommodation, hotels, villas, experiences and tourism activities.','audience.4.title':'Growing Brands','audience.4.copy':'Businesses ready to professionalise their digital presence and scale.',
     'cta.title':'Not sure where to start?','cta.copy':'We review your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.',
-    'form.intro':'We analyse your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.','form.title':'SEND US A MESSAGE','form.name':'Name','form.company':'Company','form.phone':'Phone','form.service':'Service of interest','form.message':'Message','form.submit':'Send message',
-    'contact.title':'LET’S TALK','contact.location':'Portugal','contact.hours':'Mon - Fri: 09:00 - 18:00','footer.rights':'All rights reserved.','footer.privacy':'Privacy Policy','footer.terms':'Terms of Use'
+    'form.intro':'We analyse your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.','form.title':'SEND US A MESSAGE','form.name':'Name','form.company':'Company','form.phone':'Phone','form.service':'Service of interest','form.message':'Message','form.submit':'Send message','form.privacy':'By sending this message, the information provided will only be used to respond to your enquiry. See our Privacy & Cookies Policy.',
+    'contact.title':'LET’S TALK','contact.location':'Portugal','contact.hours':'Mon - Fri: 09:00 - 18:00','footer.rights':'All rights reserved.','footer.privacy':'Privacy & Cookies','footer.terms':'Terms of Use'
   }
 };
 let lang = 'pt';
@@ -113,7 +113,13 @@ form?.addEventListener('submit', async e => {
   try {
     const payload = Object.fromEntries(new FormData(form).entries());
     payload.nome = payload.nome || payload.empresa || 'Contacto Website';
-    const r = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    const r = await fetch('/api/contact', {
+      method:'POST',
+      credentials:'same-origin',
+      referrerPolicy:'same-origin',
+      headers:{'Content-Type':'application/json','X-Requested-With':'AVYENA-Contact'},
+      body:JSON.stringify(payload)
+    });
     const data = await r.json().catch(() => ({}));
     if (!r.ok) throw new Error(data.message || (lang === 'pt' ? 'Não foi possível enviar o pedido.' : 'Could not send your request.'));
     form.reset();
