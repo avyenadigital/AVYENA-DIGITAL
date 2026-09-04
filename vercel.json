@@ -26,6 +26,14 @@
       "use": "@vercel/static"
     },
     {
+      "src": "terms.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "terms.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "*.png",
       "use": "@vercel/static"
     },

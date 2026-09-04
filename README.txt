@@ -41,3 +41,9 @@ AVYENA V9 — SEGURANÇA E ICONOGRAFIA
 - RESEND_API_KEY e CONTACT_FROM devem continuar apenas nas Environment Variables da Vercel, nunca no GitHub/frontend.
 - Opcional recomendado: configurar Rate Limiting / WAF na Vercel para /api/contact. Rate limiting apenas em memória numa serverless function não é proteção fiável.
 - Se usar um domínio extra/preview para testar o formulário, adicionar esse origin à variável CONTACT_ALLOWED_ORIGINS, separado por vírgulas.
+
+AVYENA V11 — FINAL
+- Rodapé final: “Privacidade & Cookies · Termos de Utilização”, ambos com páginas funcionais PT/EN.
+- Nova página terms.html com Termos de Utilização e seletor PT/EN, mantendo o idioma escolhido.
+- Botão flutuante de voltar ao topo aponta explicitamente para #inicio (não usa href="#").
+- Mantidas todas as proteções V9/V10, política de privacidade/cookies e ícones SVG neon corrigidos.
