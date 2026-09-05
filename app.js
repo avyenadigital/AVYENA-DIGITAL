@@ -25,7 +25,7 @@ const translations = {
   pt: {
     'nav.home':'Início','nav.services':'Serviços','nav.process':'Processo','nav.about':'Sobre','nav.contact':'Contacto',
     'cta.talk':'Falar Connosco','cta.services':'Ver Serviços','values.strategy':'Estratégia','values.creativity':'Criatividade','values.results':'Resultado',
-    'hero.line1':'Conectamos ideias.','hero.line2':'Criamos impacto.','hero.copy':'Ajudamos negócios em todo o território português a ganhar visibilidade, atrair clientes e crescer no digital com estratégia, criatividade e foco em resultados.',
+    'hero.line1':'Conectamos ideias.','hero.line2':'Criamos impacto.','hero.copy':'Ajudamos negócios no Algarve a ganhar visibilidade, atrair clientes e crescer no digital com estratégia, criatividade e foco em resultados.',
     'services.kicker':'O QUE FAZEMOS','services.title':'Soluções digitais que impulsionam o seu negócio.',
     'services.social.title':'Gestão de Redes Sociais','services.social.copy':'Planeamento, criação de conteúdo e gestão diária para fortalecer a sua marca e gerar ligação com o público certo.',
     'services.google.title':'Google Business & Presença Local','services.google.copy':'Otimização completa do seu perfil, aumento de visibilidade local e gestão de avaliações para atrair mais clientes.',
@@ -38,12 +38,12 @@ const translations = {
     'audience.kicker':'PARA QUEM TRABALHAMOS','audience.1.title':'Restauração & Bares','audience.1.copy':'Restaurantes, cafés, pastelarias, bares, gelatarias e muito mais.','audience.2.title':'Comércio & Serviços','audience.2.copy':'Lojas, salões, clínicas, oficinas, imobiliárias e negócios locais.','audience.3.title':'Turismo & Alojamento','audience.3.copy':'Alojamento local, hotéis, villas, experiências e atividades turísticas.','audience.4.title':'Marcas em Crescimento','audience.4.copy':'Negócios que querem profissionalizar a presença digital e escalar.',
     'cta.title':'Não sabe por onde começar?','cta.copy':'Analisamos a sua presença digital e identificamos oportunidades de melhoria — website, Google, redes sociais, imagem ou processos digitais.',
     'form.intro':'Analisamos a sua presença digital e identificamos oportunidades de melhoria no seu website, Google, redes sociais, imagem ou processos digitais.','form.title':'ENVIE-NOS UMA MENSAGEM','form.name':'Nome','form.company':'Empresa','form.phone':'Telefone','form.service':'Serviço de interesse','form.message':'Mensagem','form.submit':'Enviar mensagem','form.privacy':'Ao enviar esta mensagem, os dados indicados serão utilizados apenas para responder ao seu pedido. Consulte a nossa Política de Privacidade e Cookies.',
-    'contact.title':'VAMOS CONVERSAR','contact.location':'Portugal','contact.hours':'Seg - Sex: 09h00 - 18h00','footer.rights':'Todos os direitos reservados.','footer.privacy':'Privacidade & Cookies','footer.terms':'Termos de Utilização'
+    'contact.title':'VAMOS CONVERSAR','contact.location':'Algarve, Portugal','contact.hours':'Seg - Sex: 09h00 - 18h00','footer.rights':'Todos os direitos reservados.','footer.privacy':'Privacidade & Cookies','footer.terms':'Termos de Utilização'
   },
   en: {
     'nav.home':'Home','nav.services':'Services','nav.process':'Process','nav.about':'About','nav.contact':'Contact',
     'cta.talk':'Talk to Us','cta.services':'View Services','values.strategy':'Strategy','values.creativity':'Creativity','values.results':'Results',
-    'hero.line1':'We connect ideas.','hero.line2':'We create impact.','hero.copy':'We help businesses across Portugal gain visibility, attract customers and grow digitally through strategy, creativity and a focus on results.',
+    'hero.line1':'We connect ideas.','hero.line2':'We create impact.','hero.copy':'We help businesses across the Algarve gain visibility, attract customers and grow digitally through strategy, creativity and a focus on results.',
     'services.kicker':'WHAT WE DO','services.title':'Digital solutions that move your business forward.',
     'services.social.title':'Social Media Management','services.social.copy':'Planning, content creation and day-to-day management to strengthen your brand and connect with the right audience.',
     'services.google.title':'Google Business & Local Presence','services.google.copy':'Complete profile optimisation, stronger local visibility and review management to attract more customers.',
@@ -56,7 +56,7 @@ const translations = {
     'audience.kicker':'WHO WE WORK WITH','audience.1.title':'Restaurants & Bars','audience.1.copy':'Restaurants, cafés, bakeries, bars, ice-cream shops and more.','audience.2.title':'Retail & Services','audience.2.copy':'Shops, salons, clinics, workshops, real estate and local businesses.','audience.3.title':'Tourism & Accommodation','audience.3.copy':'Local accommodation, hotels, villas, experiences and tourism activities.','audience.4.title':'Growing Brands','audience.4.copy':'Businesses ready to professionalise their digital presence and scale.',
     'cta.title':'Not sure where to start?','cta.copy':'We review your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.',
     'form.intro':'We analyse your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.','form.title':'SEND US A MESSAGE','form.name':'Name','form.company':'Company','form.phone':'Phone','form.service':'Service of interest','form.message':'Message','form.submit':'Send message','form.privacy':'By sending this message, the information provided will only be used to respond to your enquiry. See our Privacy & Cookies Policy.',
-    'contact.title':'LET’S TALK','contact.location':'Portugal','contact.hours':'Mon - Fri: 09:00 - 18:00','footer.rights':'All rights reserved.','footer.privacy':'Privacy & Cookies','footer.terms':'Terms of Use'
+    'contact.title':'LET’S TALK','contact.location':'Algarve, Portugal','contact.hours':'Mon - Fri: 09:00 - 18:00','footer.rights':'All rights reserved.','footer.privacy':'Privacy & Cookies','footer.terms':'Terms of Use'
   }
 };
 let lang = 'pt';
