@@ -123,3 +123,21 @@
 .contact-trust strong{font-size:.86rem}.contact-trust small{font-size:.74rem}
 @media(max-width:1050px){.contact-v2-grid{grid-template-columns:1fr 1.25fr}.contact-direct{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 26px}.contact-direct>.contact-eyebrow,.contact-direct-intro,.contact-social{grid-column:1/-1}.contact-trust{grid-template-columns:repeat(2,1fr)}.contact-trust>div:nth-child(2){border-right:0}}
 @media(max-width:720px){.contact-v2{padding-top:54px}.contact-v2-grid{grid-template-columns:1fr}.contact-pitch,.contact-form-v2,.contact-direct{padding:24px}.contact-pitch h2{font-size:2.55rem}.contact-direct{grid-column:auto;display:block}.contact-trust{grid-template-columns:1fr;padding:8px 0}.contact-trust>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.07);padding:14px 8px}.contact-trust>div:last-child{border-bottom:0}}
+
+
+/* CONTACT DIRECT COMPACT */
+.contact-direct{padding:26px}
+.contact-direct-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:8px}
+.contact-direct-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.contact-direct .direct-item{margin:0;padding:12px 0;border-top:1px solid rgba(255,255,255,.07)}
+.contact-direct .direct-item:first-child{border-top:0}
+.direct-instagram-icon svg{width:20px;height:20px}
+@media(max-width:1050px){
+  .contact-direct{grid-column:1/-1}
+  .contact-direct-grid{grid-template-columns:repeat(2,1fr);gap:0 28px}
+  .contact-direct .direct-item:nth-child(2){border-top:0}
+}
+@media(max-width:720px){
+  .contact-direct-grid{grid-template-columns:1fr}
+  .contact-direct .direct-item:nth-child(2){border-top:1px solid rgba(255,255,255,.07)}
+}
