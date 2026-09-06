@@ -168,49 +168,68 @@
       </div>
     </section>
 
-    <section class="contact-section" id="contacto">
-      <div class="container contact-grid">
-        <div class="contact-brand reveal">
-          <img src="avyena-logo.png" alt="AVYENA Digital" loading="lazy" decoding="async">
-          <div class="social-row" aria-label="Instagram">
-            <a class="instagram-link" href="https://www.instagram.com/avyena.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram AVYENA Digital">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.7" r="1.15" fill="currentColor"/></svg>
-            </a>
+    <section class="contact-section contact-v2" id="contacto">
+      <div class="container">
+        <div class="contact-v2-grid">
+          <div class="contact-pitch reveal">
+            <p class="contact-eyebrow" data-i18n="contact.kicker">CONTACTO</p>
+            <h2 data-i18n="contact.hero">Vamos dar vida ao seu próximo <span>projeto?</span></h2>
+            <p class="contact-lead" data-i18n="contact.lead">Conte-nos as suas ideias, objetivos ou desafios. Analisamos a sua mensagem e respondemos o mais rapidamente possível.</p>
+
+            <div class="contact-benefits">
+              <div><span class="contact-benefit-icon">↯</span><p><strong data-i18n="contact.b1.title">Resposta rápida</strong><small data-i18n="contact.b1.copy">Normalmente em menos de 24h.</small></p></div>
+              <div><span class="contact-benefit-icon">◎</span><p><strong data-i18n="contact.b2.title">Acompanhamento personalizado</strong><small data-i18n="contact.b2.copy">Soluções adaptadas ao seu negócio.</small></p></div>
+              <div><span class="contact-benefit-icon">◇</span><p><strong data-i18n="contact.b3.title">Confidencialidade</strong><small data-i18n="contact.b3.copy">Os seus dados são utilizados apenas para responder ao seu pedido.</small></p></div>
+            </div>
           </div>
+
+          <form class="contact-form contact-form-v2 reveal" id="contactForm" method="post" action="/api/contact" novalidate>
+            <p class="contact-eyebrow" data-i18n="form.title">ENVIE-NOS UMA MENSAGEM</p>
+            <h3 data-i18n="contact.formHeading">Fale connosco</h3>
+            <div class="form-grid">
+              <label><span class="sr-only" data-i18n="form.name">Nome</span><input name="nome" required maxlength="120" autocomplete="name" placeholder="Nome" data-i18n-placeholder="form.name"></label>
+              <label><span class="sr-only">Email</span><input type="email" name="email" required maxlength="254" autocomplete="email" inputmode="email" placeholder="Email"></label>
+              <label><span class="sr-only" data-i18n="form.company">Empresa</span><input name="empresa" maxlength="160" autocomplete="organization" placeholder="Empresa" data-i18n-placeholder="form.company"></label>
+              <label><span class="sr-only" data-i18n="form.phone">Telefone</span><input name="telefone" maxlength="50" autocomplete="tel" inputmode="tel" placeholder="Telefone" data-i18n-placeholder="form.phone"></label>
+            </div>
+            <label><span class="sr-only" data-i18n="form.service">Serviço de interesse</span><select name="servico" required>
+              <option value="" data-i18n="form.service">Serviço de interesse</option>
+              <option data-i18n="services.social.title">Gestão de Redes Sociais</option>
+              <option data-i18n="services.google.title">Google Business & Presença Local</option>
+              <option data-i18n="services.digital.title">Soluções Digitais & Experiência</option>
+              <option data-i18n="services.web.title">Websites & Landing Pages</option>
+              <option data-i18n="services.brand.title">Branding & Identidade Visual</option>
+              <option data-i18n="services.seo.title">SEO & Visibilidade Online</option>
+              <option data-i18n="services.ads.title">Publicidade Digital</option>
+            </select></label>
+            <label><span class="sr-only" data-i18n="form.message">Mensagem</span><textarea name="mensagem" required maxlength="3000" placeholder="Mensagem" data-i18n-placeholder="form.message"></textarea></label>
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <button class="submit-btn" type="submit" data-i18n="form.submit">Enviar mensagem</button>
+            <p class="privacy-note" data-i18n="form.privacy">Ao enviar esta mensagem, os dados indicados serão utilizados apenas para responder ao seu pedido. Consulte a nossa Política de Privacidade e Cookies.</p>
+            <p id="formNote" class="form-note" aria-live="polite"></p>
+          </form>
+
+          <aside class="contact-direct reveal">
+            <p class="contact-eyebrow" data-i18n="contact.direct">CONTACTO DIRETO</p>
+            <p class="contact-direct-intro" data-i18n="contact.directCopy">Outras formas de falar connosco.</p>
+            <div class="direct-item"><span>✉</span><p><strong>Email</strong><a href="mailto:geral@avyena.pt">geral@avyena.pt</a><small data-i18n="contact.emailCopy">Resposta em 24h</small></p></div>
+            <div class="direct-item"><span>⌕</span><p><strong data-i18n="contact.phone">Telefone</strong><a href="tel:+351962434680">+351 962 434 680</a><small data-i18n="contact.hours">Seg - Sex: 09h00 - 18h00</small></p></div>
+            <div class="direct-item"><span>⌖</span><p><strong data-i18n="contact.locationTitle">Localização</strong><b data-i18n="contact.location">Algarve, Portugal</b><small data-i18n="contact.locationCopy">Atendimento a clientes em todo o país.</small></p></div>
+            <div class="contact-social">
+              <p class="contact-eyebrow" data-i18n="contact.social">INSTAGRAM</p>
+              <a class="instagram-link instagram-contact" href="https://www.instagram.com/avyena.digital" target="_blank" rel="noopener noreferrer" aria-label="Instagram AVYENA Digital">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.7" r="1.15" fill="currentColor"/></svg>
+                <span>@avyena.digital</span>
+              </a>
+            </div>
+          </aside>
         </div>
 
-        <form class="contact-form reveal" id="contactForm" method="post" action="/api/contact" novalidate>
-          <p class="form-intro" data-i18n="form.intro">Analisamos a sua presença digital e identificamos oportunidades de melhoria no seu website, Google, redes sociais, imagem ou processos digitais.</p>
-          <h3 data-i18n="form.title">ENVIE-NOS UMA MENSAGEM</h3>
-          <div class="form-grid">
-            <label><span class="sr-only" data-i18n="form.name">Nome</span><input name="nome" required maxlength="120" autocomplete="name" placeholder="Nome" data-i18n-placeholder="form.name"></label>
-            <label><span class="sr-only">Email</span><input type="email" name="email" required maxlength="254" autocomplete="email" inputmode="email" placeholder="Email"></label>
-            <label><span class="sr-only" data-i18n="form.company">Empresa</span><input name="empresa" maxlength="160" autocomplete="organization" placeholder="Empresa" data-i18n-placeholder="form.company"></label>
-            <label><span class="sr-only" data-i18n="form.phone">Telefone</span><input name="telefone" maxlength="50" autocomplete="tel" inputmode="tel" placeholder="Telefone" data-i18n-placeholder="form.phone"></label>
-          </div>
-          <label><span class="sr-only" data-i18n="form.service">Serviço de interesse</span><select name="servico" required>
-            <option value="" data-i18n="form.service">Serviço de interesse</option>
-            <option data-i18n="services.social.title">Gestão de Redes Sociais</option>
-            <option data-i18n="services.google.title">Google Business & Presença Local</option>
-            <option data-i18n="services.digital.title">Soluções Digitais & Experiência</option>
-            <option data-i18n="services.web.title">Websites & Landing Pages</option>
-            <option data-i18n="services.brand.title">Branding & Identidade Visual</option>
-            <option data-i18n="services.seo.title">SEO & Visibilidade Online</option>
-            <option data-i18n="services.ads.title">Publicidade Digital</option>
-          </select></label>
-          <label><span class="sr-only" data-i18n="form.message">Mensagem</span><textarea name="mensagem" required maxlength="3000" placeholder="Mensagem" data-i18n-placeholder="form.message"></textarea></label>
-          <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
-          <button class="submit-btn" type="submit" data-i18n="form.submit">Enviar mensagem</button>
-          <p class="privacy-note" data-i18n="form.privacy">Ao enviar esta mensagem, os dados indicados serão utilizados apenas para responder ao seu pedido. Consulte a nossa Política de Privacidade e Cookies.</p>
-          <p id="formNote" class="form-note" aria-live="polite"></p>
-        </form>
-
-        <div class="contact-info reveal">
-          <h3 data-i18n="contact.title">VAMOS CONVERSAR</h3>
-          <p><span>✉</span><a href="mailto:geral@avyena.pt">geral@avyena.pt</a></p>
-          <p><span>⌕</span><a href="tel:+351962434680">+351 962 434 680</a></p>
-          <p><span>⌖</span><span data-i18n="contact.location">Algarve, Portugal</span></p>
-          <p><span>◷</span><span data-i18n="contact.hours">Seg - Sex: 09h00 - 18h00</span></p>
+        <div class="contact-trust reveal">
+          <div><span>◎</span><p><strong data-i18n="contact.t1.title">Estratégia personalizada</strong><small data-i18n="contact.t1.copy">Cada negócio tem o seu caminho.</small></p></div>
+          <div><span>↗</span><p><strong data-i18n="contact.t2.title">Resultados mensuráveis</strong><small data-i18n="contact.t2.copy">Estratégia com foco.</small></p></div>
+          <div><span>◇</span><p><strong data-i18n="contact.t3.title">Acompanhamento próximo</strong><small data-i18n="contact.t3.copy">Crescemos consigo.</small></p></div>
+          <div><span>✓</span><p><strong data-i18n="contact.t4.title">Transparência</strong><small data-i18n="contact.t4.copy">Clareza em todas as etapas.</small></p></div>
         </div>
       </div>
     </section>
