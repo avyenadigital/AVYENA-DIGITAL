@@ -67,6 +67,27 @@ export default async function handler(req, res) {
 
   try {
     const body = req.body && typeof req.body === 'object' ? req.body : {};
+    const lang = body.lang === 'en' ? 'en' : 'pt';
+    const messages = lang === 'en'
+      ? {
+          required:'Please complete the required fields.',
+          email:'Please enter a valid email address.',
+          service:'Please select a valid service.',
+          phone:'Please enter a valid phone number.',
+          config:'Email sending is not configured on the server yet.',
+          send:'We could not send your message right now. Please try again.',
+          error:'Something went wrong. Please try again.'
+        }
+      : {
+          required:'Preenche os campos obrigatórios.',
+          email:'Indica um email válido.',
+          service:'Seleciona um serviço válido.',
+          phone:'Indica um telefone válido.',
+          config:'O envio de email ainda não está configurado no servidor.',
+          send:'Não foi possível enviar agora. Tenta novamente.',
+          error:'Ocorreu um erro. Tenta novamente.'
+        };
+
     const website = clean(body.website, 200);
     if (website) return json(res, 200, { ok:true }); // honeypot
 
@@ -78,23 +99,23 @@ export default async function handler(req, res) {
     const mensagem = clean(body.mensagem, 3000);
 
     if (!nome || !email || !servico || !mensagem) {
-      return json(res, 400, { ok:false, message:'Preenche os campos obrigatórios.' });
+      return json(res, 400, { ok:false, message:messages.required });
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/u.test(email)) {
-      return json(res, 400, { ok:false, message:'Indica um email válido.' });
+      return json(res, 400, { ok:false, message:messages.email });
     }
 
     if (!ALLOWED_SERVICES.has(servico)) {
-      return json(res, 400, { ok:false, message:'Seleciona um serviço válido.' });
+      return json(res, 400, { ok:false, message:messages.service });
     }
 
     if (telefone && !/^[0-9+().\-\s]{5,50}$/u.test(telefone)) {
-      return json(res, 400, { ok:false, message:'Indica um telefone válido.' });
+      return json(res, 400, { ok:false, message:messages.phone });
     }
 
     if (!process.env.RESEND_API_KEY) {
-      return json(res, 500, { ok:false, message:'O envio de email ainda não está configurado no servidor.' });
+      return json(res, 500, { ok:false, message:messages.config });
     }
 
     const safeSubjectService = servico.replace(/[\r\n]/g, ' ').slice(0, 80);
@@ -140,12 +161,12 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       // Do not expose provider details to the browser.
-      return json(res, 502, { ok:false, message:'Não foi possível enviar agora. Tenta novamente.' });
+      return json(res, 502, { ok:false, message:messages.send });
     }
 
     return json(res, 200, { ok:true });
   } catch (error) {
     console.error('Contact form error:', error instanceof Error ? error.message : 'unknown error');
-    return json(res, 500, { ok:false, message:'Ocorreu um erro. Tenta novamente.' });
+    return json(res, 500, { ok:false, message:messages.error });
   }
 }
