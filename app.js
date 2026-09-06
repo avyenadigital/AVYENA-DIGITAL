@@ -38,7 +38,7 @@ const translations = {
     'audience.kicker':'PARA QUEM TRABALHAMOS','audience.1.title':'Restauração & Bares','audience.1.copy':'Restaurantes, cafés, pastelarias, bares, gelatarias e muito mais.','audience.2.title':'Comércio & Serviços','audience.2.copy':'Lojas, salões, clínicas, oficinas, imobiliárias e negócios locais.','audience.3.title':'Turismo & Alojamento','audience.3.copy':'Alojamento local, hotéis, villas, experiências e atividades turísticas.','audience.4.title':'Marcas em Crescimento','audience.4.copy':'Negócios que querem profissionalizar a presença digital e escalar.',
     'cta.title':'Não sabe por onde começar?','cta.copy':'Analisamos a sua presença digital e identificamos oportunidades de melhoria — website, Google, redes sociais, imagem ou processos digitais.',
     'form.intro':'Analisamos a sua presença digital e identificamos oportunidades de melhoria no seu website, Google, redes sociais, imagem ou processos digitais.','form.title':'ENVIE-NOS UMA MENSAGEM','form.name':'Nome','form.company':'Empresa','form.phone':'Telefone','form.service':'Serviço de interesse','form.message':'Mensagem','form.submit':'Enviar mensagem','form.privacy':'Ao enviar esta mensagem, os dados indicados serão utilizados apenas para responder ao seu pedido. Consulte a nossa Política de Privacidade e Cookies.',
-    'contact.title':'VAMOS CONVERSAR','contact.location':'Algarve, Portugal','contact.hours':'Seg - Sex: 09h00 - 18h00','footer.rights':'Todos os direitos reservados.','footer.privacy':'Privacidade & Cookies','footer.terms':'Termos de Utilização'
+    'contact.title':'VAMOS CONVERSAR','contact.location':'Algarve, Portugal','contact.hours':'Seg - Sex: 09h00 - 18h00','footer.rights':'Todos os direitos reservados.','footer.privacy':'Privacidade & Cookies','footer.terms':'Termos de Utilização','a11y.values':'Valores AVYENA'
   },
   en: {
     'nav.home':'Home','nav.services':'Services','nav.process':'Process','nav.about':'About','nav.contact':'Contact',
@@ -56,7 +56,7 @@ const translations = {
     'audience.kicker':'WHO WE WORK WITH','audience.1.title':'Restaurants & Bars','audience.1.copy':'Restaurants, cafés, bakeries, bars, ice-cream shops and more.','audience.2.title':'Retail & Services','audience.2.copy':'Shops, salons, clinics, workshops, real estate and local businesses.','audience.3.title':'Tourism & Accommodation','audience.3.copy':'Local accommodation, hotels, villas, experiences and tourism activities.','audience.4.title':'Growing Brands','audience.4.copy':'Businesses ready to professionalise their digital presence and scale.',
     'cta.title':'Not sure where to start?','cta.copy':'We review your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.',
     'form.intro':'We analyse your digital presence and identify opportunities to improve your website, Google presence, social media, brand image or digital processes.','form.title':'SEND US A MESSAGE','form.name':'Name','form.company':'Company','form.phone':'Phone','form.service':'Service of interest','form.message':'Message','form.submit':'Send message','form.privacy':'By sending this message, the information provided will only be used to respond to your enquiry. See our Privacy & Cookies Policy.',
-    'contact.title':'LET’S TALK','contact.location':'Algarve, Portugal','contact.hours':'Mon - Fri: 09:00 - 18:00','footer.rights':'All rights reserved.','footer.privacy':'Privacy & Cookies','footer.terms':'Terms of Use'
+    'contact.title':'LET’S TALK','contact.location':'Algarve, Portugal','contact.hours':'Mon - Fri: 09:00 - 18:00','footer.rights':'All rights reserved.','footer.privacy':'Privacy & Cookies','footer.terms':'Terms of Use','a11y.values':'AVYENA values'
   }
 };
 let lang = 'pt';
@@ -76,6 +76,24 @@ const applyLang = () => {
     const key = el.dataset.i18nPlaceholder;
     if (dict[key]) el.setAttribute('placeholder', dict[key]);
   });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+    const key = el.dataset.i18nAriaLabel;
+    if (dict[key]) el.setAttribute('aria-label', dict[key]);
+  });
+
+  const menu = document.getElementById('menuBtn');
+  const toTop = document.querySelector('[data-i18n-top]');
+  if (menu) {
+    const isOpen = menu.getAttribute('aria-expanded') === 'true';
+    menu.setAttribute('aria-label',
+      lang === 'pt'
+        ? (isOpen ? 'Fechar menu' : 'Abrir menu')
+        : (isOpen ? 'Close menu' : 'Open menu')
+    );
+  }
+  if (toTop) {
+    toTop.setAttribute('aria-label', lang === 'pt' ? 'Voltar ao topo' : 'Back to top');
+  }
   const langFlag = document.getElementById('langFlag');
   const langCode = document.getElementById('langCode');
   const pageIsPT = lang === 'pt';
@@ -112,6 +130,7 @@ form?.addEventListener('submit', async e => {
   note.style.color = '#aeb8cf';
   try {
     const payload = Object.fromEntries(new FormData(form).entries());
+    payload.lang = lang;
     payload.nome = payload.nome || payload.empresa || 'Contacto Website';
     const r = await fetch('/api/contact', {
       method:'POST',
