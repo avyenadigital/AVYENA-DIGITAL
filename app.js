@@ -70,7 +70,12 @@ const applyLang = () => {
   document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
-    if (dict[key]) el.textContent = dict[key];
+    if (!dict[key]) return;
+    if (key === 'contact.hero') {
+      el.innerHTML = dict[key];
+    } else {
+      el.textContent = dict[key];
+    }
   });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.dataset.i18nPlaceholder;
