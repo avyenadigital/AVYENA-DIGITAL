@@ -87,3 +87,39 @@
 @media(max-width:640px){
   .audience-card{aspect-ratio:16/10;min-height:230px}
 }
+
+
+/* CONTACT V2 */
+.contact-v2{padding:74px 0 28px;border-top:1px solid rgba(255,255,255,.06);background:radial-gradient(circle at 8% 40%,rgba(131,34,255,.12),transparent 28%),radial-gradient(circle at 88% 20%,rgba(0,212,255,.07),transparent 24%)}
+.contact-v2-grid{display:grid;grid-template-columns:1.05fr 1.35fr .85fr;gap:16px;align-items:stretch}
+.contact-pitch,.contact-form-v2,.contact-direct{border:1px solid rgba(126,80,255,.28);border-radius:18px;background:linear-gradient(145deg,rgba(8,12,30,.86),rgba(4,9,22,.78));box-shadow:0 22px 60px rgba(0,0,0,.22)}
+.contact-pitch{padding:34px}
+.contact-eyebrow{margin:0 0 12px;color:#d13cff;font-size:.76rem;font-weight:900;letter-spacing:.18em}
+.contact-pitch h2{margin:0;max-width:560px;font-size:clamp(2.1rem,4vw,4rem);line-height:1.02;letter-spacing:-.045em}
+.contact-pitch h2 span{background:linear-gradient(90deg,#dc17ff,#3d68ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact-lead{margin:22px 0 30px;color:#c9c8d5;font-size:1.02rem;line-height:1.7}
+.contact-benefits{display:grid;gap:16px}
+.contact-benefits>div,.direct-item{display:flex;gap:14px;align-items:center}
+.contact-benefit-icon,.direct-item>span{width:46px;height:46px;flex:0 0 46px;display:grid;place-items:center;border:1px solid #b41cff;border-radius:50%;color:#c932ff;font-size:1.25rem;box-shadow:inset 0 0 22px rgba(61,104,255,.12)}
+.contact-benefits p,.direct-item p,.contact-trust p{margin:0}
+.contact-benefits strong,.direct-item strong,.contact-trust strong{display:block}
+.contact-benefits small,.direct-item small,.contact-trust small{display:block;margin-top:3px;color:#9d9baa;line-height:1.35}
+.contact-form-v2{padding:30px}
+.contact-form-v2 h3{margin:-2px 0 22px;font-size:2rem}
+.contact-form-v2 input,.contact-form-v2 select,.contact-form-v2 textarea{background:rgba(7,13,30,.8);border-color:rgba(118,132,180,.35);border-radius:10px}
+.contact-form-v2 textarea{min-height:138px}
+.contact-direct{padding:30px}
+.contact-direct-intro{margin:-4px 0 26px;color:#b9b7c5}
+.direct-item{margin:0 0 22px}
+.direct-item a,.direct-item b{display:block;margin-top:3px;color:#f5f4fa;text-decoration:none;font-weight:500}
+.contact-social{margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1)}
+.instagram-contact{width:auto;height:auto;display:inline-flex;gap:10px;align-items:center;border-radius:999px;padding:8px 13px;text-decoration:none}
+.instagram-contact svg{width:22px;height:22px}
+.instagram-contact span{font-size:.82rem;font-weight:800;color:#eee}
+.contact-trust{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(126,80,255,.24);border-bottom:1px solid rgba(126,80,255,.16);padding:20px 0}
+.contact-trust>div{display:flex;align-items:center;gap:12px;padding:4px 22px;border-right:1px solid rgba(255,255,255,.09)}
+.contact-trust>div:last-child{border-right:0}
+.contact-trust>div>span{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border:1px solid #9b20ff;border-radius:50%;color:#b72cff}
+.contact-trust strong{font-size:.86rem}.contact-trust small{font-size:.74rem}
+@media(max-width:1050px){.contact-v2-grid{grid-template-columns:1fr 1.25fr}.contact-direct{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 26px}.contact-direct>.contact-eyebrow,.contact-direct-intro,.contact-social{grid-column:1/-1}.contact-trust{grid-template-columns:repeat(2,1fr)}.contact-trust>div:nth-child(2){border-right:0}}
+@media(max-width:720px){.contact-v2{padding-top:54px}.contact-v2-grid{grid-template-columns:1fr}.contact-pitch,.contact-form-v2,.contact-direct{padding:24px}.contact-pitch h2{font-size:2.55rem}.contact-direct{grid-column:auto;display:block}.contact-trust{grid-template-columns:1fr;padding:8px 0}.contact-trust>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.07);padding:14px 8px}.contact-trust>div:last-child{border-bottom:0}}
