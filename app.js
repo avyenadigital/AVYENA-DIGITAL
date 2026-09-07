@@ -149,7 +149,6 @@ const modalTitle=document.getElementById('serviceModalTitle');
 const modalLead=document.getElementById('serviceModalLead');
 const modalList=document.getElementById('serviceModalList');
 const modalIcon=document.getElementById('serviceModalIcon');
-const modalMore=document.getElementById('serviceModalMore');
 const modalKicker=document.getElementById('serviceModalKicker');
 const modalIncludes=document.getElementById('serviceModalIncludesTitle');
 const modalContact=document.getElementById('serviceModalContact');
@@ -165,7 +164,6 @@ function openServiceModal(key){
   modalKicker.textContent=lang==='pt'?'SERVIÇO AVYENA':'AVYENA SERVICE';
   modalIncludes.textContent=lang==='pt'?'O que podemos fazer':'What we can do';
   modalContact.firstChild.textContent=lang==='pt'?'Pedir proposta ':'Request a proposal ';
-  if(data.more){modalMore.href=data.more;modalMore.textContent=lang==='pt'?'Ver página completa':'View full page';modalMore.hidden=false}else{modalMore.hidden=true}
   serviceModal.hidden=false;
   document.body.classList.add('modal-open');
   serviceModal.querySelector('.service-modal-close')?.focus();
@@ -175,7 +173,7 @@ function closeServiceModal(){
   serviceModal.hidden=true;document.body.classList.remove('modal-open');
   lastServiceTrigger?.focus?.();
 }
-document.querySelectorAll('.service-modal-trigger').forEach(btn=>btn.addEventListener('click',()=>openServiceModal(btn.dataset.service)));
+document.querySelectorAll('.service-modal-trigger').forEach(el=>el.addEventListener('click',e=>{if(el.tagName==='A')e.preventDefault();openServiceModal(el.dataset.service)}));
 document.querySelectorAll('[data-modal-close]').forEach(el=>el.addEventListener('click',closeServiceModal));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeServiceModal()});
 modalContact?.addEventListener('click',()=>{
