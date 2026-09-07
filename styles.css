@@ -204,3 +204,31 @@
 /* AVYENA V12 — service cards as direct links, removing duplicate CTA strip */
 .service-card-link{display:block;color:inherit;text-decoration:none;cursor:pointer}
 .service-card-link:focus-visible{outline:2px solid #00e5ff;outline-offset:3px}
+
+
+/* AVYENA V13 — uniformização visual dos cartões de serviços */
+.service-card.service-card-link,
+.service-card.service-card-link:link,
+.service-card.service-card-link:visited,
+.service-card.service-card-link:hover,
+.service-card.service-card-link:active{
+  color:inherit;
+  text-decoration:none;
+}
+.service-card.service-card-link h3{
+  color:var(--text);
+  text-decoration:none;
+}
+.service-card.service-card-link p{
+  color:#d5daea;
+  text-decoration:none;
+}
+.service-card.service-card-link .neon-icon{
+  color:#d31cff;
+}
+.service-card:not(.service-card-link) .card-arrow{
+  display:none;
+}
+.service-card.service-card-link .card-arrow{
+  display:block;
+}
