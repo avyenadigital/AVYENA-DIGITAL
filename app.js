@@ -23,7 +23,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 const translations = {
   pt: {
-    'nav.home':'Início','nav.services':'Serviços','nav.process':'Processo','nav.about':'Sobre','nav.contact':'Contacto',
+    'nav.home':'Início','nav.services':'Serviços','nav.process':'Processo','nav.about':'Porquê AVYENA','nav.contact':'Contacto',
     'cta.talk':'Falar Connosco','cta.services':'Ver Serviços','values.strategy':'Estratégia','values.creativity':'Criatividade','values.results':'Resultado',
     'hero.line1':'Conectamos ideias.','hero.line2':'Criamos impacto.','hero.copy':'Somos uma agência de marketing digital no Algarve. Ajudamos negócios a ganhar visibilidade, atrair clientes e crescer online com estratégia, criatividade e foco em resultados.',
     'services.kicker':'O QUE FAZEMOS','services.title':'Soluções digitais que impulsionam o seu negócio.',
@@ -41,7 +41,7 @@ const translations = {
     'contact.title':'VAMOS CONVERSAR','contact.kicker':'CONTACTO','contact.hero':'Vamos dar vida ao seu próximo <span>projeto?</span>','contact.lead':'Conte-nos as suas ideias, objetivos ou desafios. Analisamos a sua mensagem e respondemos o mais rapidamente possível.','contact.b1.title':'Resposta rápida','contact.b1.copy':'Normalmente em menos de 24h.','contact.b2.title':'Acompanhamento personalizado','contact.b2.copy':'Soluções adaptadas ao seu negócio.','contact.b3.title':'Confidencialidade','contact.b3.copy':'Os seus dados são utilizados apenas para responder ao seu pedido.','contact.formHeading':'Fale connosco','contact.direct':'CONTACTO DIRETO','contact.directCopy':'Outras formas de falar connosco.','contact.emailCopy':'Resposta em 24h','contact.phone':'Telefone','contact.locationTitle':'Localização','contact.location':'Algarve, Portugal','contact.locationCopy':'Atendimento a clientes em todo o país.','contact.hours':'Seg - Sex: 09h00 - 18h00','contact.social':'INSTAGRAM','contact.instagramCopy':'See our work and latest updates.','contact.instagramCopy':'Veja o nosso trabalho e novidades.','contact.t1.title':'Estratégia personalizada','contact.t1.copy':'Cada negócio tem o seu caminho.','contact.t2.title':'Resultados mensuráveis','contact.t2.copy':'Estratégia com foco.','contact.t3.title':'Acompanhamento próximo','contact.t3.copy':'Crescemos consigo.','contact.t4.title':'Transparência','contact.t4.copy':'Clareza em todas as etapas.','footer.rights':'Todos os direitos reservados.','footer.privacy':'Privacidade & Cookies','footer.terms':'Termos de Utilização','a11y.values':'Valores AVYENA'
   },
   en: {
-    'nav.home':'Home','nav.services':'Services','nav.process':'Process','nav.about':'About','nav.contact':'Contact',
+    'nav.home':'Home','nav.services':'Services','nav.process':'Process','nav.about':'Why AVYENA','nav.contact':'Contact',
     'cta.talk':'Talk to Us','cta.services':'View Services','values.strategy':'Strategy','values.creativity':'Creativity','values.results':'Results',
     'hero.line1':'We connect ideas.','hero.line2':'We create impact.','hero.copy':'We help businesses across the Algarve gain visibility, attract customers and grow digitally through strategy, creativity and a focus on results.',
     'services.kicker':'WHAT WE DO','services.title':'Digital solutions that move your business forward.',
