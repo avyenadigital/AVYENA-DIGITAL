@@ -1,0 +1,69 @@
+name: Security CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js
+          node --check contact.js
+          node --check privacy.js
+          node --check terms.js
+
+      - name: Validate JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8')); console.log('vercel.json OK')"
+
+      - name: Verify required security headers
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const config = JSON.parse(fs.readFileSync('vercel.json', 'utf8'));
+          const globalHeaders = (config.headers || []).find(h => h.source === '/(.*)');
+          if (!globalHeaders) throw new Error('Global security headers are missing');
+          const names = new Set(globalHeaders.headers.map(h => h.key.toLowerCase()));
+          const required = [
+            'content-security-policy',
+            'strict-transport-security',
+            'x-content-type-options',
+            'x-frame-options',
+            'referrer-policy',
+            'permissions-policy'
+          ];
+          for (const name of required) {
+            if (!names.has(name)) throw new Error('Missing security header: ' + name);
+          }
+          console.log('Required security headers OK');
+          NODE
+
+      - name: Check for accidentally committed secrets
+        run: |
+          if grep -RInE --exclude-dir=.git --exclude='README.txt' --exclude='*.md' \
+            '(RESEND_API_KEY[[:space:]]*=[[:space:]]*[^[:space:]]+|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|AKIA[0-9A-Z]{16})' .; then
+            echo 'Potential secret detected in repository.'
+            exit 1
+          fi
+          echo 'No obvious committed secrets detected.'
+
+      - name: Verify contact endpoint safeguards
+        run: |
+          grep -q 'RATE_LIMIT_MAX_REQUESTS' contact.js
+          grep -q 'MAX_BODY_BYTES' contact.js
+          grep -q 'originAllowed' contact.js
+          grep -q 'x-requested-with' contact.js
+          grep -q 'escapeHtml' contact.js
+          echo 'Contact endpoint safeguards OK'
