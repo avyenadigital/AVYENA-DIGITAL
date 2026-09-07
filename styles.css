@@ -257,3 +257,17 @@
 .service-modal-more{color:#9eefff;text-decoration:none;font-weight:700;font-size:14px}
 body.modal-open{overflow:hidden}
 @media(max-width:640px){.service-modal{padding:12px}.service-modal-panel{padding:28px 20px 22px;max-height:calc(100vh - 24px);border-radius:18px}.service-modal-panel ul{grid-template-columns:1fr}.service-modal-panel h2{margin-right:42px}.service-modal-close{right:12px;top:12px}}
+
+
+/* AVYENA V15 — remove underline from all seven service cards */
+.service-grid .service-card,
+.service-grid .service-card:link,
+.service-grid .service-card:visited,
+.service-grid .service-card:hover,
+.service-grid .service-card:focus,
+.service-grid .service-card:active,
+.service-grid .service-card h3,
+.service-grid .service-card p,
+.service-grid .service-card span{
+  text-decoration:none !important;
+}
