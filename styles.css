@@ -141,3 +141,61 @@
   .contact-direct-grid{grid-template-columns:1fr}
   .contact-direct .direct-item:nth-child(2){border-top:1px solid rgba(255,255,255,.07)}
 }
+
+
+/* AVYENA V11 — internal service links */
+.service-links{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.service-links a{
+  min-height:58px;
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  align-items:center;
+  gap:10px;
+  padding:11px 14px;
+  border:1px solid rgba(103,135,214,.24);
+  border-radius:12px;
+  background:linear-gradient(180deg,rgba(8,16,32,.82),rgba(4,9,19,.88));
+  color:#edf2ff;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.3;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.service-links a:hover{
+  transform:translateY(-2px);
+  border-color:rgba(0,229,255,.5);
+  box-shadow:0 12px 28px rgba(0,0,0,.24),0 0 20px rgba(139,36,255,.10);
+}
+.service-link-icon{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(225,0,255,.48);
+  border-radius:9px;
+  color:#ec25ff;
+  background:rgba(225,0,255,.05);
+  font-size:17px;
+}
+.service-link-arrow{
+  color:#00dfff;
+  font-size:18px;
+  opacity:.8;
+}
+@media(max-width:900px){
+  .service-links{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .service-links{margin-top:18px;gap:8px;}
+  .service-links a{
+    min-height:52px;
+    padding:9px 11px;
+    font-size:12.5px;
+  }
+}
