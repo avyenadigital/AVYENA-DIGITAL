@@ -232,3 +232,28 @@
 .service-card.service-card-link .card-arrow{
   display:block;
 }
+
+
+/* AVYENA V14 — service detail modal */
+.service-modal-trigger{font:inherit;color:inherit;text-align:left;width:100%;cursor:pointer}
+.service-modal-trigger h3{color:var(--text)}
+.service-modal-trigger .card-arrow{display:block}
+.service-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:22px}
+.service-modal[hidden]{display:none}
+.service-modal-backdrop{position:absolute;inset:0;background:rgba(0,2,9,.82);backdrop-filter:blur(9px)}
+.service-modal-panel{position:relative;width:min(680px,100%);max-height:min(760px,calc(100vh - 44px));overflow:auto;padding:38px;border:1px solid rgba(0,229,255,.34);border-radius:22px;background:radial-gradient(circle at 0 0,rgba(225,0,255,.13),transparent 35%),linear-gradient(145deg,#091225,#030712 72%);box-shadow:0 28px 100px rgba(0,0,0,.62),0 0 50px rgba(91,36,255,.16)}
+.service-modal-panel:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--grad)}
+.service-modal-close{position:absolute;right:18px;top:16px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:#07101e;color:#fff;font-size:27px;line-height:1;cursor:pointer}
+.service-modal-icon{width:62px;height:62px;display:grid;place-items:center;border:1px solid rgba(225,0,255,.55);border-radius:17px;color:#e52cff;font-size:30px;background:rgba(225,0,255,.06);margin-bottom:18px}
+.service-modal-kicker{margin:0 0 8px;color:#d83cff;font-size:12px;font-weight:900;letter-spacing:.16em}
+.service-modal-panel h2{font-size:clamp(28px,5vw,44px);line-height:1.05;margin:0 50px 14px 0}
+.service-modal-lead{color:#cfd7e8;font-size:16px;line-height:1.65;margin:0 0 24px}
+.service-modal-panel h3{font-size:15px;margin:0 0 10px;color:#fff}
+.service-modal-panel ul{margin:0 0 28px;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 16px}
+.service-modal-panel li{position:relative;padding-left:20px;color:#dce3f2;font-size:14px;line-height:1.45}
+.service-modal-panel li:before{content:"✓";position:absolute;left:0;color:#00e5ff;font-weight:900}
+.service-modal-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.service-modal-actions .pill{cursor:pointer}
+.service-modal-more{color:#9eefff;text-decoration:none;font-weight:700;font-size:14px}
+body.modal-open{overflow:hidden}
+@media(max-width:640px){.service-modal{padding:12px}.service-modal-panel{padding:28px 20px 22px;max-height:calc(100vh - 24px);border-radius:18px}.service-modal-panel ul{grid-template-columns:1fr}.service-modal-panel h2{margin-right:42px}.service-modal-close{right:12px;top:12px}}
