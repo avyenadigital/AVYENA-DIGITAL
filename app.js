@@ -25,7 +25,7 @@ const translations = {
   pt: {
     'nav.home':'Início','nav.services':'Serviços','nav.process':'Processo','nav.about':'Sobre','nav.contact':'Contacto',
     'cta.talk':'Falar Connosco','cta.services':'Ver Serviços','values.strategy':'Estratégia','values.creativity':'Criatividade','values.results':'Resultado',
-    'hero.line1':'Conectamos ideias.','hero.line2':'Criamos impacto.','hero.copy':'Ajudamos negócios no Algarve a ganhar visibilidade, atrair clientes e crescer no digital com estratégia, criatividade e foco em resultados.',
+    'hero.line1':'Conectamos ideias.','hero.line2':'Criamos impacto.','hero.copy':'Somos uma agência de marketing digital no Algarve. Ajudamos negócios a ganhar visibilidade, atrair clientes e crescer online com estratégia, criatividade e foco em resultados.',
     'services.kicker':'O QUE FAZEMOS','services.title':'Soluções digitais que impulsionam o seu negócio.',
     'services.social.title':'Gestão de Redes Sociais','services.social.copy':'Planeamento, criação de conteúdo e gestão diária para fortalecer a sua marca e gerar ligação com o público certo.',
     'services.google.title':'Google Business & Presença Local','services.google.copy':'Otimização completa do seu perfil, aumento de visibilidade local e gestão de avaliações para atrair mais clientes.',
