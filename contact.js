@@ -1,4 +1,6 @@
 const MAX_BODY_BYTES = 12 * 1024;
+const RATE_LIMIT_WINDOW_MS = 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 6;
 
 const ALLOWED_SERVICES = new Set([
   'Gestão de Redes Sociais', 'Social Media Management',
@@ -9,6 +11,9 @@ const ALLOWED_SERVICES = new Set([
   'SEO & Visibilidade Online', 'SEO & Online Visibility',
   'Publicidade Digital', 'Digital Advertising'
 ]);
+
+const rateStore = globalThis.__avyenaContactRateStore
+  || (globalThis.__avyenaContactRateStore = new Map());
 
 const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, c => ({
   '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'
@@ -26,17 +31,90 @@ const json = (res, status, body) => {
   return res.status(status).json(body);
 };
 
+const getMessages = (lang) => lang === 'en'
+  ? {
+      required:'Please complete the required fields.',
+      email:'Please enter a valid email address.',
+      service:'Please select a valid service.',
+      phone:'Please enter a valid phone number.',
+      config:'Email sending is not configured on the server yet.',
+      send:'We could not send your message right now. Please try again.',
+      rate:'Too many attempts. Please wait a moment and try again.',
+      error:'Something went wrong. Please try again.'
+    }
+  : {
+      required:'Preenche os campos obrigatórios.',
+      email:'Indica um email válido.',
+      service:'Seleciona um serviço válido.',
+      phone:'Indica um telefone válido.',
+      config:'O envio de email ainda não está configurado no servidor.',
+      send:'Não foi possível enviar agora. Tenta novamente.',
+      rate:'Demasiadas tentativas. Aguarda um momento e tenta novamente.',
+      error:'Ocorreu um erro. Tenta novamente.'
+    };
+
 function originAllowed(req) {
   const origin = req.headers.origin;
-  if (!origin) return true; // permits non-browser clients; remaining validations still apply
+  if (!origin) return true;
 
   const defaults = ['https://avyena.pt', 'https://www.avyena.pt'];
   const configured = String(process.env.CONTACT_ALLOWED_ORIGINS || '')
-    .split(',').map(v => v.trim()).filter(Boolean);
+    .split(',')
+    .map(v => v.trim())
+    .filter(Boolean);
+
   return new Set([...defaults, ...configured]).has(origin);
 }
 
+function requestIp(req) {
+  const forwarded = String(req.headers['x-forwarded-for'] || '')
+    .split(',')[0]
+    .trim();
+
+  return forwarded
+    || String(req.headers['x-real-ip'] || '').trim()
+    || String(req.socket?.remoteAddress || '').trim()
+    || 'unknown';
+}
+
+function rateLimit(req) {
+  const now = Date.now();
+  const key = requestIp(req);
+  const current = rateStore.get(key);
+
+  if (!current || now >= current.resetAt) {
+    rateStore.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, retryAfter: 0 };
+  }
+
+  current.count += 1;
+
+  if (current.count > RATE_LIMIT_MAX_REQUESTS) {
+    return {
+      allowed: false,
+      retryAfter: Math.max(1, Math.ceil((current.resetAt - now) / 1000))
+    };
+  }
+
+  return { allowed: true, retryAfter: 0 };
+}
+
+function pruneRateStore() {
+  if (rateStore.size < 500) return;
+
+  const now = Date.now();
+  for (const [key, value] of rateStore) {
+    if (now >= value.resetAt) rateStore.delete(key);
+  }
+}
+
 export default async function handler(req, res) {
+  const bodyLang = req.body && typeof req.body === 'object' && !Array.isArray(req.body)
+    ? req.body.lang
+    : null;
+  const lang = bodyLang === 'en' ? 'en' : 'pt';
+  const messages = getMessages(lang);
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return json(res, 405, { ok:false, message:'Método não permitido.' });
@@ -48,7 +126,7 @@ export default async function handler(req, res) {
   }
 
   const contentLength = Number(req.headers['content-length'] || 0);
-  if (contentLength > MAX_BODY_BYTES) {
+  if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
     return json(res, 413, { ok:false, message:'Pedido demasiado longo.' });
   }
 
@@ -65,31 +143,25 @@ export default async function handler(req, res) {
     return json(res, 403, { ok:false, message:'Pedido não autorizado.' });
   }
 
+  pruneRateStore();
+  const limit = rateLimit(req);
+  if (!limit.allowed) {
+    res.setHeader('Retry-After', String(limit.retryAfter));
+    return json(res, 429, { ok:false, message:messages.rate });
+  }
+
   try {
-    const body = req.body && typeof req.body === 'object' ? req.body : {};
-    const lang = body.lang === 'en' ? 'en' : 'pt';
-    const messages = lang === 'en'
-      ? {
-          required:'Please complete the required fields.',
-          email:'Please enter a valid email address.',
-          service:'Please select a valid service.',
-          phone:'Please enter a valid phone number.',
-          config:'Email sending is not configured on the server yet.',
-          send:'We could not send your message right now. Please try again.',
-          error:'Something went wrong. Please try again.'
-        }
-      : {
-          required:'Preenche os campos obrigatórios.',
-          email:'Indica um email válido.',
-          service:'Seleciona um serviço válido.',
-          phone:'Indica um telefone válido.',
-          config:'O envio de email ainda não está configurado no servidor.',
-          send:'Não foi possível enviar agora. Tenta novamente.',
-          error:'Ocorreu um erro. Tenta novamente.'
-        };
+    const body = req.body && typeof req.body === 'object' && !Array.isArray(req.body)
+      ? req.body
+      : {};
+
+    const measuredBodyBytes = Buffer.byteLength(JSON.stringify(body), 'utf8');
+    if (measuredBodyBytes > MAX_BODY_BYTES) {
+      return json(res, 413, { ok:false, message:'Pedido demasiado longo.' });
+    }
 
     const website = clean(body.website, 200);
-    if (website) return json(res, 200, { ok:true }); // honeypot
+    if (website) return json(res, 200, { ok:true });
 
     const nome = clean(body.nome, 120);
     const empresa = clean(body.empresa, 160);
@@ -138,6 +210,7 @@ export default async function handler(req, res) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
     let response;
+
     try {
       response = await fetch('https://api.resend.com/emails', {
         method:'POST',
@@ -160,13 +233,16 @@ export default async function handler(req, res) {
     }
 
     if (!response.ok) {
-      // Do not expose provider details to the browser.
       return json(res, 502, { ok:false, message:messages.send });
     }
 
     return json(res, 200, { ok:true });
   } catch (error) {
-    console.error('Contact form error:', error instanceof Error ? error.message : 'unknown error');
+    console.error(
+      'Contact form error:',
+      error instanceof Error ? error.message : 'unknown error'
+    );
+
     return json(res, 500, { ok:false, message:messages.error });
   }
 }
