@@ -25,39 +25,56 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "AVYENA Digital",
-    "url": "https://www.avyena.pt/",
-    "logo": "https://www.avyena.pt/avyena-logo.png",
-    "image": "https://www.avyena.pt/avyena-logo.png",
-    "email": "geral@avyena.pt",
-    "telephone": "+351962434680",
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Algarve"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.avyena.pt/#website",
+      "url": "https://www.avyena.pt/",
+      "name": "AVYENA Digital",
+      "inLanguage": "pt-PT"
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "Algarve",
-      "addressCountry": "PT"
-    },
-    "sameAs": [
-      "https://www.instagram.com/avyena.digital"
-    ],
-    "priceRange": "€€",
-    "knowsLanguage": ["pt-PT", "en"],
-    "serviceType": [
-      "SEO e visibilidade online",
-      "Google Business e presença local",
-      "Gestão de redes sociais",
-      "Websites e landing pages",
-      "Branding e identidade visual",
-      "Publicidade digital"
-    ]
-  }
-  </script>
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.avyena.pt/#business",
+      "name": "AVYENA Digital",
+      "url": "https://www.avyena.pt/",
+      "logo": "https://www.avyena.pt/avyena-logo.png",
+      "image": "https://www.avyena.pt/avyena-logo.png",
+      "email": "geral@avyena.pt",
+      "telephone": "+351962434680",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Algarve"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Algarve",
+        "addressCountry": "PT"
+      },
+      "sameAs": [
+        "https://www.instagram.com/avyena.digital"
+      ],
+      "priceRange": "€€",
+      "knowsLanguage": ["pt-PT", "en"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços digitais AVYENA",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gestão de Redes Sociais","url":"https://www.avyena.pt/redes-sociais-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Google Business e Presença Local","url":"https://www.avyena.pt/google-business-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Soluções Digitais e Experiência","url":"https://www.avyena.pt/solucoes-digitais-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Websites e Landing Pages","url":"https://www.avyena.pt/websites-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Branding e Identidade Visual","url":"https://www.avyena.pt/branding-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO e Visibilidade Online","url":"https://www.avyena.pt/seo-local-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Publicidade Digital","url":"https://www.avyena.pt/publicidade-digital-algarve.html"}}
+        ]
+      }
+    }
+  ]
+}
+</script>
   <script src="analytics.js" defer></script>
 </head>
 <body>
@@ -127,11 +144,11 @@
         <div class="service-grid">
           <a class="service-card service-modal-trigger reveal" href="/redes-sociais-algarve.html" data-service="social"><div class="neon-icon" aria-hidden="true">↗</div><h3 data-i18n="services.social.title">Gestão de Redes Sociais</h3><p data-i18n="services.social.copy">Planeamento, criação de conteúdo e gestão diária para fortalecer a sua marca e gerar ligação com o público certo.</p><span class="card-arrow">→</span></a>
           <a class="service-card service-modal-trigger reveal" href="/google-business-algarve.html" data-service="google"><div class="neon-icon" aria-hidden="true">▤</div><h3 data-i18n="services.google.title">Google Business & Presença Local</h3><p data-i18n="services.google.copy">Otimização completa do seu perfil, aumento de visibilidade local e gestão de avaliações para atrair mais clientes.</p><span class="card-arrow">→</span></a>
-          <button class="service-card service-modal-trigger reveal" type="button" data-service="digital"><div class="neon-icon" aria-hidden="true">▦</div><h3 data-i18n="services.digital.title">Soluções Digitais & Experiência</h3><p data-i18n="services.digital.copy">Menus digitais, QR Codes, reservas, pedidos e outras soluções que tornam a experiência do cliente mais prática e moderna.</p><span class="card-arrow">→</span></button>
+          <a class="service-card service-modal-trigger reveal" href="/solucoes-digitais-algarve.html" data-service="digital"><div class="neon-icon" aria-hidden="true">▦</div><h3 data-i18n="services.digital.title">Soluções Digitais & Experiência</h3><p data-i18n="services.digital.copy">Menus digitais, QR Codes, reservas, pedidos e outras soluções que tornam a experiência do cliente mais prática e moderna.</p><span class="card-arrow">→</span></a>
           <a class="service-card service-modal-trigger reveal" href="/websites-algarve.html" data-service="web"><div class="neon-icon" aria-hidden="true">▣</div><h3 data-i18n="services.web.title">Websites & Landing Pages</h3><p data-i18n="services.web.copy">Sites rápidos, responsivos e otimizados para converter visitantes em clientes e destacar o seu negócio.</p><span class="card-arrow">→</span></a>
-          <button class="service-card service-modal-trigger reveal" type="button" data-service="brand"><div class="neon-icon" aria-hidden="true">✒</div><h3 data-i18n="services.brand.title">Branding & Identidade Visual</h3><p data-i18n="services.brand.copy">Criamos marcas memoráveis com identidade visual forte, coerente e alinhada ao posicionamento do negócio.</p><span class="card-arrow">→</span></button>
+          <a class="service-card service-modal-trigger reveal" href="/branding-algarve.html" data-service="brand"><div class="neon-icon" aria-hidden="true">✒</div><h3 data-i18n="services.brand.title">Branding & Identidade Visual</h3><p data-i18n="services.brand.copy">Criamos marcas memoráveis com identidade visual forte, coerente e alinhada ao posicionamento do negócio.</p><span class="card-arrow">→</span></a>
           <a class="service-card service-modal-trigger reveal" href="/seo-local-algarve.html" data-service="seo"><div class="neon-icon" aria-hidden="true">⌕</div><h3 data-i18n="services.seo.title">SEO & Visibilidade Online</h3><p data-i18n="services.seo.copy">Otimização para Google, SEO local e estratégia de conteúdo para aumentar a visibilidade orgânica do seu negócio.</p><span class="card-arrow">→</span></a>
-          <button class="service-card service-modal-trigger reveal" type="button" data-service="ads"><div class="neon-icon" aria-hidden="true">↗</div><h3 data-i18n="services.ads.title">Publicidade Digital</h3><p data-i18n="services.ads.copy">Campanhas Google e Meta orientadas para aumentar visibilidade, gerar contactos e apoiar o crescimento do seu negócio.</p><span class="card-arrow">→</span></button>
+          <a class="service-card service-modal-trigger reveal" href="/publicidade-digital-algarve.html" data-service="ads"><div class="neon-icon" aria-hidden="true">↗</div><h3 data-i18n="services.ads.title">Publicidade Digital</h3><p data-i18n="services.ads.copy">Campanhas Google e Meta orientadas para aumentar visibilidade, gerar contactos e apoiar o crescimento do seu negócio.</p><span class="card-arrow">→</span></a>
         </div>
       </div>
     </section>
@@ -279,6 +296,7 @@
       <ul id="serviceModalList"></ul>
       <div class="service-modal-actions">
         <button class="pill pill-primary" id="serviceModalContact" type="button">Pedir proposta <span>→</span></button>
+        <a class="service-modal-more" id="serviceModalMore" href="/">Saber mais sobre este serviço</a>
       </div>
     </section>
   </div>
