@@ -67,41 +67,26 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-live', 'polite');
     banner.setAttribute('aria-label', en ? 'Analytics preferences' : 'Preferências de analítica');
-    banner.style.cssText = [
-      'position:fixed',
-      'left:50%',
-      'bottom:18px',
-      'transform:translateX(-50%)',
-      'z-index:99999',
-      'width:min(92vw,760px)',
-      'background:rgba(3,8,20,.97)',
-      'border:1px solid rgba(0,229,255,.24)',
-      'box-shadow:0 16px 50px rgba(0,0,0,.45)',
-      'border-radius:16px',
-      'padding:16px 18px',
-      'color:#eef5ff',
-      'font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif',
-      'backdrop-filter:blur(14px)'
-    ].join(';');
+    banner.className = 'avyena-cookie-consent';
 
     const text = document.createElement('div');
-    text.style.cssText = 'margin:0 0 12px';
+    text.className = 'avyena-cookie-consent__text';
     text.innerHTML = en
-      ? 'We use Google Analytics only with your permission to understand website usage and improve our services. <a href="/privacy-cookies.html" style="color:#00e5ff">Privacy & Cookies</a>.'
-      : 'Usamos o Google Analytics apenas com a sua autorização para compreender a utilização do site e melhorar os nossos serviços. <a href="/privacy-cookies.html" style="color:#00e5ff">Privacidade & Cookies</a>.';
+      ? 'We use Google Analytics only with your permission to understand website usage and improve our services. <a class="avyena-cookie-consent__link" href="/privacy-cookies.html">Privacy & Cookies</a>.'
+      : 'Usamos o Google Analytics apenas com a sua autorização para compreender a utilização do site e melhorar os nossos serviços. <a class="avyena-cookie-consent__link" href="/privacy-cookies.html">Privacidade & Cookies</a>.';
 
     const actions = document.createElement('div');
-    actions.style.cssText = 'display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap';
+    actions.className = 'avyena-cookie-consent__actions';
 
     const decline = document.createElement('button');
     decline.type = 'button';
     decline.textContent = en ? 'Decline' : 'Recusar';
-    decline.style.cssText = 'border:1px solid rgba(255,255,255,.22);background:transparent;color:#eef5ff;border-radius:999px;padding:9px 15px;cursor:pointer;font:inherit';
+    decline.className = 'avyena-cookie-consent__button';
 
     const accept = document.createElement('button');
     accept.type = 'button';
     accept.textContent = en ? 'Accept analytics' : 'Aceitar analítica';
-    accept.style.cssText = 'border:0;background:#00e5ff;color:#031018;border-radius:999px;padding:9px 15px;cursor:pointer;font:700 14px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+    accept.className = 'avyena-cookie-consent__button avyena-cookie-consent__button--accept';
 
     decline.addEventListener('click', () => {
       setConsent('denied');
@@ -119,6 +104,13 @@
     banner.append(text, actions);
     document.body.appendChild(banner);
   }
+
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest?.('[data-avyena-cookie-settings]');
+    if (!trigger) return;
+    event.preventDefault();
+    window.AvyenaCookieSettings?.();
+  });
 
   window.AvyenaCookieSettings = () => {
     try { localStorage.removeItem(CONSENT_KEY); } catch (_) {}
