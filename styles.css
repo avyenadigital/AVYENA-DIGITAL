@@ -271,3 +271,44 @@ body.modal-open{overflow:hidden}
 .service-grid .service-card span{
   text-decoration:none !important;
 }
+
+
+.avyena-cookie-consent{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  z-index:99999;
+  width:min(92vw,760px);
+  background:rgba(3,8,20,.97);
+  border:1px solid rgba(0,229,255,.24);
+  box-shadow:0 16px 50px rgba(0,0,0,.45);
+  border-radius:16px;
+  padding:16px 18px;
+  color:#eef5ff;
+  font:14px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  backdrop-filter:blur(14px);
+}
+.avyena-cookie-consent__text{margin:0 0 12px}
+.avyena-cookie-consent__link{color:#00e5ff}
+.avyena-cookie-consent__actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.avyena-cookie-consent__button{
+  border:1px solid rgba(255,255,255,.22);
+  background:transparent;
+  color:#eef5ff;
+  border-radius:999px;
+  padding:9px 15px;
+  cursor:pointer;
+  font:inherit;
+}
+.avyena-cookie-consent__button--accept{
+  border:0;
+  background:#00e5ff;
+  color:#031018;
+  font-weight:700;
+}
+@media (max-width:560px){
+  .avyena-cookie-consent{bottom:10px;padding:14px;width:min(94vw,760px)}
+  .avyena-cookie-consent__actions{justify-content:stretch}
+  .avyena-cookie-consent__button{flex:1 1 140px}
+}
