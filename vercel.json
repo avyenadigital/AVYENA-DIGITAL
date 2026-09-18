@@ -46,6 +46,10 @@
       "use": "@vercel/static"
     },
     {
+      "src": "privacy-consent.css",
+      "use": "@vercel/static"
+    },
+    {
       "src": "privacy.js",
       "use": "@vercel/static"
     },
