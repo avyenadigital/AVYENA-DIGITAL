@@ -208,6 +208,11 @@ form?.addEventListener('submit', async e => {
     form.reset();
     note.textContent = lang === 'pt' ? 'Mensagem enviada com sucesso. Entraremos em contacto em breve.' : 'Message sent successfully. We will be in touch shortly.';
     note.style.color = '#00e5ff';
+    window.AvyenaAnalytics?.track('generate_lead', {
+      form_name: 'contact_form',
+      service: String(payload.servico || 'not_specified'),
+      language: lang
+    });
   } catch (err) {
     note.textContent = err.message || (lang === 'pt' ? 'Ocorreu um erro. Tente novamente.' : 'Something went wrong. Please try again.');
     note.style.color = '#ff79c6';
