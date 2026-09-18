@@ -60,10 +60,6 @@ const translations = {
   }
 };
 let lang = 'pt';
-try {
-  const savedLang = localStorage.getItem('avyena_lang');
-  if (savedLang === 'pt' || savedLang === 'en') lang = savedLang;
-} catch (_) {}
 const langBtn = document.getElementById('langToggle');
 const applyLang = () => {
   const dict = translations[lang];
@@ -113,13 +109,8 @@ const applyLang = () => {
     langBtn.setAttribute('title', pageIsPT ? 'Português' : 'English');
   }
 };
-langBtn?.addEventListener('click', () => {
-  lang = lang === 'pt' ? 'en' : 'pt';
-  try { localStorage.setItem('avyena_lang', lang); } catch (_) {}
-  applyLang();
-});
-
-// Apply the correct language and flag immediately on first load.
+// Portuguese is the canonical language of this URL. The language control now links
+// to the dedicated, indexable English version under /en/.
 applyLang();
 
 
