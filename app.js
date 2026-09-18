@@ -127,21 +127,21 @@ applyLang();
 const serviceDetails = {
   pt: {
     social:{icon:'↗',title:'Gestão de Redes Sociais',lead:'Transformamos as redes sociais numa presença consistente, profissional e orientada para aproximar a marca do público certo.',items:['Estratégia e calendário editorial','Criação de conteúdos e copy','Stories e publicações','Gestão e otimização contínua'],more:'/redes-sociais-algarve.html'},
-    google:{icon:'▤',title:'Google Business & Presença Local',lead:'Ajudamos o seu negócio a ser encontrado por clientes que pesquisam serviços e empresas na sua zona.',items:['Otimização do Google Business Profile','Informação, categorias e serviços','Estratégia de avaliações','Visibilidade nas pesquisas locais'],more:'/seo-local-algarve.html'},
-    digital:{icon:'▦',title:'Soluções Digitais & Experiência',lead:'Criamos ferramentas simples que melhoram a experiência do cliente e tornam processos do negócio mais rápidos e modernos.',items:['Menus digitais e QR Codes','Sistemas de reservas','Formulários e pedidos online','Soluções digitais à medida']},
+    google:{icon:'▤',title:'Google Business & Presença Local',lead:'Ajudamos o seu negócio a ser encontrado por clientes que pesquisam serviços e empresas na sua zona.',items:['Otimização do Google Business Profile','Informação, categorias e serviços','Estratégia de avaliações','Visibilidade nas pesquisas locais'],more:'/google-business-algarve.html'},
+    digital:{icon:'▦',title:'Soluções Digitais & Experiência',lead:'Criamos ferramentas simples que melhoram a experiência do cliente e tornam processos do negócio mais rápidos e modernos.',items:['Menus digitais e QR Codes','Sistemas de reservas','Formulários e pedidos online','Soluções digitais à medida'],more:'/solucoes-digitais-algarve.html'},
     web:{icon:'▣',title:'Websites & Landing Pages',lead:'Desenvolvemos websites rápidos, responsivos e pensados para transformar visitas em contactos e oportunidades de negócio.',items:['Design responsivo','Estrutura orientada à conversão','SEO técnico essencial','Integrações e formulários'],more:'/websites-algarve.html'},
-    brand:{icon:'✒',title:'Branding & Identidade Visual',lead:'Construímos uma imagem coerente e reconhecível para que o seu negócio transmita profissionalismo em todos os pontos de contacto.',items:['Logótipo e evolução de marca','Paleta, tipografia e linguagem visual','Materiais digitais','Consistência da identidade']},
+    brand:{icon:'✒',title:'Branding & Identidade Visual',lead:'Construímos uma imagem coerente e reconhecível para que o seu negócio transmita profissionalismo em todos os pontos de contacto.',items:['Logótipo e evolução de marca','Paleta, tipografia e linguagem visual','Materiais digitais','Consistência da identidade'],more:'/branding-algarve.html'},
     seo:{icon:'⌕',title:'SEO & Visibilidade Online',lead:'Otimizamos a presença digital para aumentar a probabilidade de o seu negócio aparecer quando potenciais clientes pesquisam no Google.',items:['SEO on-page e técnico','Pesquisa e estrutura de conteúdos','SEO local','Monitorização e melhoria contínua'],more:'/seo-local-algarve.html'},
-    ads:{icon:'↗',title:'Publicidade Digital',lead:'Criamos campanhas orientadas para objetivos concretos, desde aumentar notoriedade até gerar contactos e oportunidades.',items:['Google Ads','Meta Ads','Segmentação de públicos','Análise e otimização de campanhas']}
+    ads:{icon:'↗',title:'Publicidade Digital',lead:'Criamos campanhas orientadas para objetivos concretos, desde aumentar notoriedade até gerar contactos e oportunidades.',items:['Google Ads','Meta Ads','Segmentação de públicos','Análise e otimização de campanhas'],more:'/publicidade-digital-algarve.html'}
   },
   en: {
     social:{icon:'↗',title:'Social Media Management',lead:'We turn social media into a consistent, professional presence designed to connect your brand with the right audience.',items:['Strategy and content calendar','Content creation and copy','Stories and posts','Ongoing management and optimisation'],more:'/redes-sociais-algarve.html'},
-    google:{icon:'▤',title:'Google Business & Local Presence',lead:'We help your business get found by customers searching for services and companies in your area.',items:['Google Business Profile optimisation','Business information and services','Review strategy','Local search visibility'],more:'/seo-local-algarve.html'},
-    digital:{icon:'▦',title:'Digital Solutions & Customer Experience',lead:'We create simple digital tools that improve customer experience and make business processes faster and more modern.',items:['Digital menus and QR codes','Booking systems','Online forms and requests','Tailored digital solutions']},
+    google:{icon:'▤',title:'Google Business & Local Presence',lead:'We help your business get found by customers searching for services and companies in your area.',items:['Google Business Profile optimisation','Business information and services','Review strategy','Local search visibility'],more:'/google-business-algarve.html'},
+    digital:{icon:'▦',title:'Digital Solutions & Customer Experience',lead:'We create simple digital tools that improve customer experience and make business processes faster and more modern.',items:['Digital menus and QR codes','Booking systems','Online forms and requests','Tailored digital solutions'],more:'/solucoes-digitais-algarve.html'},
     web:{icon:'▣',title:'Websites & Landing Pages',lead:'We build fast, responsive websites designed to turn visits into enquiries and business opportunities.',items:['Responsive design','Conversion-focused structure','Essential technical SEO','Integrations and forms'],more:'/websites-algarve.html'},
-    brand:{icon:'✒',title:'Branding & Visual Identity',lead:'We build a coherent, recognisable image so your business communicates professionalism at every touchpoint.',items:['Logo and brand evolution','Colour, typography and visual language','Digital materials','Brand consistency']},
+    brand:{icon:'✒',title:'Branding & Visual Identity',lead:'We build a coherent, recognisable image so your business communicates professionalism at every touchpoint.',items:['Logo and brand evolution','Colour, typography and visual language','Digital materials','Brand consistency'],more:'/branding-algarve.html'},
     seo:{icon:'⌕',title:'SEO & Online Visibility',lead:'We optimise your digital presence to improve your chances of appearing when potential customers search on Google.',items:['On-page and technical SEO','Content research and structure','Local SEO','Ongoing monitoring and improvement'],more:'/seo-local-algarve.html'},
-    ads:{icon:'↗',title:'Digital Advertising',lead:'We create campaigns focused on clear objectives, from increasing awareness to generating enquiries and opportunities.',items:['Google Ads','Meta Ads','Audience targeting','Campaign analysis and optimisation']}
+    ads:{icon:'↗',title:'Digital Advertising',lead:'We create campaigns focused on clear objectives, from increasing awareness to generating enquiries and opportunities.',items:['Google Ads','Meta Ads','Audience targeting','Campaign analysis and optimisation'],more:'/publicidade-digital-algarve.html'}
   }
 };
 const serviceModal=document.getElementById('serviceModal');
@@ -152,6 +152,7 @@ const modalIcon=document.getElementById('serviceModalIcon');
 const modalKicker=document.getElementById('serviceModalKicker');
 const modalIncludes=document.getElementById('serviceModalIncludesTitle');
 const modalContact=document.getElementById('serviceModalContact');
+const modalMore=document.getElementById('serviceModalMore');
 let lastServiceTrigger=null;
 function openServiceModal(key){
   const data=serviceDetails[lang]?.[key];
@@ -164,6 +165,11 @@ function openServiceModal(key){
   modalKicker.textContent=lang==='pt'?'SERVIÇO AVYENA':'AVYENA SERVICE';
   modalIncludes.textContent=lang==='pt'?'O que podemos fazer':'What we can do';
   modalContact.firstChild.textContent=lang==='pt'?'Pedir proposta ':'Request a proposal ';
+  if(modalMore){
+    modalMore.href=data.more||'/';
+    modalMore.textContent=lang==='pt'?'Saber mais sobre este serviço':'Learn more about this service';
+    modalMore.hidden=!data.more;
+  }
   serviceModal.hidden=false;
   document.body.classList.add('modal-open');
   serviceModal.querySelector('.service-modal-close')?.focus();
