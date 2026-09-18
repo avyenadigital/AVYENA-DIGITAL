@@ -25,40 +25,56 @@
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "AVYENA Digital",
-    "url": "https://www.avyena.pt/",
-    "logo": "https://www.avyena.pt/avyena-logo.png",
-    "image": "https://www.avyena.pt/avyena-logo.png",
-    "email": "geral@avyena.pt",
-    "telephone": "+351962434680",
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Algarve"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.avyena.pt/#website",
+      "url": "https://www.avyena.pt/",
+      "name": "AVYENA Digital",
+      "inLanguage": "pt-PT"
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "Algarve",
-      "addressCountry": "PT"
-    },
-    "sameAs": [
-      "https://www.instagram.com/avyena.digital"
-    ],
-    "priceRange": "€€",
-    "knowsLanguage": ["pt-PT", "en"],
-    "serviceType": [
-      "SEO e visibilidade online",
-      "Google Business e presença local",
-      "Gestão de redes sociais",
-      "Websites e landing pages",
-      "Soluções digitais e experiência",
-      "Branding e identidade visual",
-      "Publicidade digital"
-    ]
-  }
-  </script>
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.avyena.pt/#business",
+      "name": "AVYENA Digital",
+      "url": "https://www.avyena.pt/",
+      "logo": "https://www.avyena.pt/avyena-logo.png",
+      "image": "https://www.avyena.pt/avyena-logo.png",
+      "email": "geral@avyena.pt",
+      "telephone": "+351962434680",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Algarve"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Algarve",
+        "addressCountry": "PT"
+      },
+      "sameAs": [
+        "https://www.instagram.com/avyena.digital"
+      ],
+      "priceRange": "€€",
+      "knowsLanguage": ["pt-PT", "en"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços digitais AVYENA",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Gestão de Redes Sociais","url":"https://www.avyena.pt/redes-sociais-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Google Business e Presença Local","url":"https://www.avyena.pt/google-business-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Soluções Digitais e Experiência","url":"https://www.avyena.pt/solucoes-digitais-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Websites e Landing Pages","url":"https://www.avyena.pt/websites-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Branding e Identidade Visual","url":"https://www.avyena.pt/branding-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO e Visibilidade Online","url":"https://www.avyena.pt/seo-local-algarve.html"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Publicidade Digital","url":"https://www.avyena.pt/publicidade-digital-algarve.html"}}
+        ]
+      }
+    }
+  ]
+}
+</script>
   <script src="analytics.js" defer></script>
 </head>
 <body>
