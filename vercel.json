@@ -38,6 +38,38 @@
       "use": "@vercel/static"
     },
     {
+      "src": "en/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/web-design-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/local-seo-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/social-media-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/google-business-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/branding-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/digital-advertising-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/digital-solutions-algarve.html",
+      "use": "@vercel/static"
+    },
+    {
       "src": "sitemap.xml",
       "use": "@vercel/static"
     },
@@ -138,6 +170,10 @@
     {
       "src": "/api/contact",
       "dest": "/contact.js"
+    },
+    {
+      "src": "/en/?",
+      "dest": "/en/index.html"
     },
     {
       "handle": "filesystem"
