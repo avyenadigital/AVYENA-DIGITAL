@@ -1,0 +1,3 @@
+.section .container p a:not(.pill){color:#fff;font-weight:700;text-decoration:none;transition:color .2s ease,text-shadow .2s ease}.section .container p a:not(.pill):hover{color:#fff;text-shadow:0 0 10px rgba(0,229,255,.55)}
+.section .container p a:not(.pill){color:#fff;font-weight:700;text-decoration:none}.lang-back{display:inline-block;margin-left:12px}
+.seo-editorial-link{color:#fff;font-weight:700;text-decoration:none;transition:color .2s ease,text-shadow .2s ease}.seo-editorial-link:hover,.seo-editorial-link:focus-visible{color:#fff;text-shadow:0 0 10px rgba(0,229,255,.55);outline:none}
