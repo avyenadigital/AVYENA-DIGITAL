@@ -33,9 +33,9 @@ jobs:
           node <<'NODE'
           const fs = require('fs');
           const config = JSON.parse(fs.readFileSync('vercel.json', 'utf8'));
-          const globalHeaders = (config.headers || []).find(h => h.source === '/(.*)');
-          if (!globalHeaders) throw new Error('Global security headers are missing');
-          const names = new Set(globalHeaders.headers.map(h => h.key.toLowerCase()));
+          const globalHeaders = (config.routes || []).find(h => h.src === '/(.*)' && h.continue === true && h.headers);
+          if (!globalHeaders || config.routes.indexOf(globalHeaders) !== 0) throw new Error('Global security headers must precede routing');
+          const names = new Set(Object.keys(globalHeaders.headers).map(h => h.toLowerCase()));
           const required = [
             'content-security-policy',
             'strict-transport-security',
