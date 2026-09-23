@@ -78,6 +78,14 @@
       "use": "@vercel/static"
     },
     {
+      "src": "portfolio-preview.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "portfolio-preview.css",
+      "use": "@vercel/static"
+    },
+    {
       "src": "styles.css",
       "use": "@vercel/static"
     },
