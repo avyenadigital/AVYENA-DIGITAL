@@ -312,3 +312,453 @@ body.modal-open{overflow:hidden}
   .avyena-cookie-consent__actions{justify-content:stretch}
   .avyena-cookie-consent__button{flex:1 1 140px}
 }
+
+/* ============================================================
+   AVYENA V16 — UNIVERSAL RESPONSIVE SAFETY PASS
+   Additive guardrails for desktop, 2K/4K, ultrawide, laptops,
+   tablets, phones, browser zoom and Windows 125%/150% scaling.
+   Keeps the approved visual language and existing breakpoints.
+============================================================ */
+
+html{
+  max-width:100%;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body,
+main,
+section,
+.site-header,
+.footer{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+}
+
+:where(
+  .container,
+  .header-inner,
+  .desktop-nav,
+  .header-actions,
+  .mobile-nav,
+  .hero-grid,
+  .hero-copy-wrap,
+  .hero-visual,
+  .hero-actions,
+  .hero-values,
+  .service-grid,
+  .service-card,
+  .process-grid,
+  .process-step,
+  .promise-panel,
+  .promise-grid,
+  .audience-grid,
+  .audience-card,
+  .cta-panel,
+  .contact-grid,
+  .contact-v2-grid,
+  .contact-pitch,
+  .contact-form-v2,
+  .contact-direct,
+  .contact-direct-grid,
+  .contact-trust,
+  .footer-inner,
+  .legal-shell,
+  .legal-card,
+  .service-links,
+  .service-modal-panel
+){
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+
+:where(
+  .hero-grid,
+  .service-grid,
+  .process-grid,
+  .promise-grid,
+  .audience-grid,
+  .contact-grid,
+  .contact-v2-grid,
+  .contact-direct-grid,
+  .contact-trust,
+  .service-links
+) > *{
+  min-width:0!important;
+  max-width:100%;
+}
+
+/* Long copy and translated content must shrink inside its own column. */
+:where(
+  .hero h1,
+  .hero-copy,
+  .service-card h3,
+  .service-card p,
+  .process-step h3,
+  .process-step p,
+  .promise-grid h3,
+  .promise-grid p,
+  .audience-card h3,
+  .audience-card p,
+  .cta-panel h2,
+  .cta-panel p,
+  .contact-pitch h2,
+  .contact-lead,
+  .contact-benefits,
+  .contact-direct,
+  .contact-trust,
+  .footer,
+  .legal-card,
+  .service-modal-panel
+){
+  max-width:100%;
+  overflow-wrap:break-word;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe{
+  max-width:100%;
+}
+
+video,
+canvas,
+iframe{
+  height:auto;
+}
+
+/* Keep the global content shell fluid at every zoom/scaling level. */
+.container{
+  width:min(1480px,calc(100% - clamp(28px,4.2vw,72px)))!important;
+}
+
+/* ---------- Header: compact before it has a chance to collide ---------- */
+.header-inner{
+  min-width:0!important;
+}
+
+.brand{
+  min-width:0;
+  flex:0 1 auto;
+}
+
+.brand img{
+  max-width:min(250px,25vw)!important;
+}
+
+.desktop-nav{
+  min-width:0!important;
+}
+
+.desktop-nav a,
+.header-actions,
+.lang-toggle,
+.pill{
+  min-width:0;
+}
+
+@media (min-width:901px) and (max-width:1180px){
+  .header-inner{
+    gap:clamp(10px,1.4vw,18px)!important;
+  }
+
+  .brand img{
+    width:clamp(170px,17vw,205px)!important;
+  }
+
+  .desktop-nav{
+    gap:clamp(10px,1.5vw,18px)!important;
+  }
+
+  .desktop-nav a{
+    font-size:clamp(12px,1.15vw,14px)!important;
+    white-space:nowrap;
+  }
+
+  .header-actions{
+    gap:8px!important;
+  }
+
+  .lang-toggle{
+    padding-inline:10px!important;
+  }
+
+  .header-actions .pill{
+    padding-inline:14px!important;
+    white-space:nowrap;
+  }
+}
+
+/* At desktop widths made narrow by browser zoom/OS scaling, switch to the
+   already-approved mobile navigation before links can overlap. */
+@media (min-width:901px) and (max-width:1024px){
+  .desktop-nav,
+  .header-actions .pill{
+    display:none!important;
+  }
+
+  .menu-btn{
+    display:block!important;
+  }
+
+  .header-actions{
+    margin-left:auto!important;
+  }
+
+  .mobile-nav.open{
+    display:flex!important;
+    flex-direction:column!important;
+  }
+}
+
+/* ---------- Hero: preserve composition without clipping ---------- */
+.hero{
+  min-width:0!important;
+  overflow:clip;
+}
+
+@supports not (overflow:clip){
+  .hero{overflow:hidden;}
+}
+
+.hero-grid{
+  grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)!important;
+  gap:clamp(24px,3.2vw,46px)!important;
+}
+
+.hero-copy-wrap,
+.hero-visual{
+  min-width:0!important;
+}
+
+.hero h1{
+  width:100%;
+  max-width:100%!important;
+  font-size:clamp(48px,5.1vw,86px)!important;
+  line-height:.96!important;
+}
+
+.hero-copy{
+  width:min(100%,660px)!important;
+}
+
+.hero-logo{
+  width:min(700px,100%)!important;
+  height:auto!important;
+}
+
+/* Large desktop/2K/4K: cap the composition instead of letting typography
+   and spacing grow with the physical monitor. */
+@media (min-width:1600px){
+  .hero-grid{
+    grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;
+    gap:clamp(34px,2.5vw,54px)!important;
+  }
+
+  .hero h1{
+    font-size:clamp(64px,4.2vw,86px)!important;
+  }
+}
+
+@media (min-width:2560px){
+  .container{
+    width:min(1600px,calc(100% - 120px))!important;
+  }
+
+  .hero h1{
+    font-size:86px!important;
+  }
+
+  .hero-logo{
+    max-width:720px!important;
+  }
+}
+
+/* Short laptop/desktop viewports: reduce vertical pressure while retaining
+   the same two-column visual. */
+@media (min-width:901px) and (max-height:760px){
+  .hero{
+    min-height:0!important;
+    padding-top:20px!important;
+    padding-bottom:18px!important;
+  }
+
+  .hero-visual{
+    min-height:clamp(300px,55vh,420px)!important;
+  }
+
+  .hero-logo{
+    max-height:min(58vh,420px)!important;
+  }
+
+  .hero h1{
+    font-size:clamp(42px,min(5vw,9vh),72px)!important;
+  }
+
+  .hero-copy{
+    margin-bottom:20px!important;
+  }
+
+  .hero-values{
+    margin-top:20px!important;
+  }
+}
+
+/* Existing single-column mobile/tablet hero remains authoritative. */
+@media (max-width:900px){
+  .hero{
+    overflow:hidden;
+  }
+
+  .hero-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  .hero h1{
+    font-size:clamp(42px,11.5vw,72px)!important;
+  }
+
+  .hero-copy,
+  .hero-actions,
+  .hero-values{
+    max-width:100%!important;
+  }
+
+  .hero-actions > *,
+  .hero-values > *{
+    min-width:0;
+  }
+}
+
+@media (max-width:640px){
+  .hero h1{
+    font-size:clamp(38px,11.2vw,58px)!important;
+    letter-spacing:clamp(-2px,-.45vw,-1px)!important;
+  }
+
+  .hero-copy{
+    font-size:clamp(15.5px,4.1vw,17px)!important;
+  }
+
+  .hero-actions .pill{
+    max-width:100%;
+    white-space:normal;
+    text-align:center;
+  }
+
+  .hero-values span{
+    max-width:100%;
+  }
+}
+
+@media (max-width:359px){
+  .container{
+    width:calc(100% - 18px)!important;
+  }
+
+  .brand img{
+    width:150px!important;
+  }
+
+  .hero h1{
+    font-size:clamp(34px,10.8vw,42px)!important;
+  }
+}
+
+/* ---------- Grids/cards: children never force the viewport wider ---------- */
+.service-card,
+.process-step,
+.promise-grid article,
+.audience-card,
+.contact-pitch,
+.contact-form-v2,
+.contact-direct,
+.contact-trust > div{
+  min-width:0!important;
+  max-width:100%!important;
+}
+
+.process-step{
+  grid-template-columns:minmax(0,76px) minmax(0,1fr)!important;
+}
+
+.promise-grid article{
+  grid-template-columns:minmax(0,56px) minmax(0,1fr)!important;
+}
+
+.contact-benefits > div,
+.direct-item,
+.contact-trust > div{
+  min-width:0!important;
+}
+
+.contact-benefits > div > div,
+.direct-item > div,
+.contact-trust > div > div{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+/* CTA can collapse gracefully when translated copy or zoom consumes space. */
+@media (min-width:641px) and (max-width:900px){
+  .cta-panel{
+    grid-template-columns:auto minmax(0,1fr)!important;
+  }
+}
+
+@media (max-width:640px){
+  .cta-panel{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+}
+
+/* ---------- Forms/modals/legal: viewport-safe at any browser chrome height ---------- */
+.contact-form input,
+.contact-form select,
+.contact-form textarea,
+.contact-form-v2 input,
+.contact-form-v2 select,
+.contact-form-v2 textarea{
+  min-width:0!important;
+  max-width:100%!important;
+}
+
+.service-modal-panel{
+  width:min(680px,calc(100vw - 24px))!important;
+  max-width:calc(100vw - 24px)!important;
+  max-height:min(760px,calc(100dvh - 24px))!important;
+  overscroll-behavior:contain;
+}
+
+@supports not (height:100dvh){
+  .service-modal-panel{
+    max-height:min(760px,calc(100vh - 24px))!important;
+  }
+}
+
+.legal-shell{
+  width:min(920px,calc(100% - clamp(20px,4vw,40px)))!important;
+}
+
+.legal-top{
+  min-width:0;
+}
+
+.legal-actions{
+  min-width:0;
+  flex-wrap:wrap;
+}
+
+/* Fixed UI respects small screens and safe areas. */
+.to-top{
+  right:max(14px,env(safe-area-inset-right))!important;
+  bottom:max(14px,env(safe-area-inset-bottom))!important;
+}
+
+.avyena-cookie-consent{
+  max-width:calc(100vw - 20px)!important;
+  bottom:max(10px,env(safe-area-inset-bottom))!important;
+}
