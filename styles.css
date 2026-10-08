@@ -790,3 +790,6 @@ iframe{
 
 /* Real desktop and mobile screenshots, each inside its own device frame. */
 .portfolio-devices{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.27fr);gap:14px;align-items:end;padding:20px 0}.portfolio-devices .portfolio-laptop{min-width:0;padding-bottom:0}.portfolio-phone{min-width:0;padding:5px;background:linear-gradient(145deg,#59606b,#161a22 40%);border:1px solid #858d99;border-radius:20px;box-shadow:0 15px 25px rgba(0,0,0,.4)}.portfolio-phone img{display:block;width:100%;height:auto;border-radius:14px}@media(max-width:600px){.portfolio-devices{gap:8px}.portfolio-phone{padding:3px;border-radius:12px}.portfolio-phone img{border-radius:8px}}
+
+/* Hide Android's status bar in the portfolio phone presentation. */
+.portfolio-phone{overflow:hidden}.portfolio-phone img{margin-top:-8.4%;border-top-left-radius:0;border-top-right-radius:0}
