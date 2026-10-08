@@ -150,7 +150,7 @@ function openServiceModal(key){
   if(!data||!serviceModal)return;
   lastServiceTrigger=document.activeElement;
   modalIcon.replaceChildren();
-  const sourceIcon=document.querySelector('[data-service="'+key+'"] .avy-icon');
+  const sourceIcon=document.querySelector('[data-service="'+key+'"] .avy-sculpt');
   if(sourceIcon) modalIcon.append(sourceIcon.cloneNode(true));
   modalTitle.textContent=data.title;
   modalLead.textContent=data.lead;
