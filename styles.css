@@ -814,3 +814,18 @@ iframe{
 .service-modal-icon .avy-icon{width:52px;height:52px}
 
 .direct-item>span .avy-icon{width:26px;height:26px}
+
+/* Sculptural illustrations from the approved AVYENA concept */
+.avy-sculpt{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.neon-icon{width:100%;height:128px;margin-bottom:16px;border:0;border-radius:0;background:none;overflow:visible}
+.service-card:hover .neon-icon{border:0;background:none}
+.neon-icon .avy-sculpt{max-width:176px;justify-self:center}
+.step-ring{width:76px;height:76px;border:0;border-radius:0;background:none;box-shadow:none}
+.promise-icon{width:64px;height:64px;border:0;border-radius:0;background:none}
+.audience-icon{background:none;border:0;overflow:visible}
+.audience-icon .avy-sculpt{width:60px;height:60px}
+.contact-benefit-icon .avy-sculpt{width:38px;height:38px}
+.hero-values .avy-sculpt{width:28px;height:28px}
+.service-modal-icon{width:160px;height:140px;border:0;background:none;border-radius:0;margin-bottom:10px}
+.service-modal-icon .avy-sculpt{width:100%;height:100%}
+@media(max-width:760px){.neon-icon{height:144px}.neon-icon .avy-sculpt{max-width:200px}.step-ring{width:68px;height:68px}}
