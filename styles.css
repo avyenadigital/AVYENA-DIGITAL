@@ -784,3 +784,6 @@ iframe{
 
 /* Keep a standard laptop screen instead of sizing the device to an ultrawide capture. */
 .portfolio-laptop{max-width:640px;margin-inline:auto}.portfolio-laptop-screen{aspect-ratio:16/10;background:linear-gradient(145deg,#444b56,#11151c 35%)}.portfolio-laptop-screen img{position:absolute;left:10px;top:12px;width:calc(100% - 20px);height:calc(100% - 27px);object-fit:contain;background:#050910}.portfolio-laptop-base{height:12px}@media(max-width:600px){.portfolio-laptop-screen img{left:6px;top:8px;width:calc(100% - 12px);height:calc(100% - 18px)}.portfolio-laptop-base{height:9px}}
+
+/* Match portfolio actions to the site buttons and clip gradients cleanly. */
+.portfolio-button{border-radius:15px;min-height:46px;max-width:100%;text-align:center;overflow:hidden;background-clip:padding-box}.portfolio-primary{border:0;padding:14px 19px;background-clip:border-box}.portfolio-description + .portfolio-description{margin-top:14px}.portfolio-cta .portfolio-button{flex-shrink:0}@media(max-width:600px){.portfolio-cta .portfolio-button{flex-shrink:1}}
