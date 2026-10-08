@@ -128,6 +128,10 @@
     {
       "src": "sunhouse-mobile-real.jpeg",
       "use": "@vercel/static"
+    },
+    {
+      "src": "assets/icons/*.webp",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
