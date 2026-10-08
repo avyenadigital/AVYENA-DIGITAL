@@ -149,7 +149,9 @@ function openServiceModal(key){
   const data=serviceDetails[lang]?.[key];
   if(!data||!serviceModal)return;
   lastServiceTrigger=document.activeElement;
-  modalIcon.textContent=data.icon;
+  modalIcon.replaceChildren();
+  const sourceIcon=document.querySelector('[data-service="'+key+'"] .avy-icon');
+  if(sourceIcon) modalIcon.append(sourceIcon.cloneNode(true));
   modalTitle.textContent=data.title;
   modalLead.textContent=data.lead;
   modalList.innerHTML=data.items.map(item=>'<li>'+item+'</li>').join('');
