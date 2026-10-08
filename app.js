@@ -249,3 +249,6 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
+
+// Expand the project details when following the portfolio anchor.
+document.querySelectorAll('a[href="#sunhouse-details"]').forEach(link=>link.addEventListener('click',()=>{const details=document.getElementById('sunhouse-details');if(details)details.open=true;}));
