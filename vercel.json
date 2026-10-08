@@ -124,6 +124,10 @@
     {
       "src": "404.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "sunhouse-mobile-real.jpeg",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
