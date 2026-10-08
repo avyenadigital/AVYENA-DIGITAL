@@ -762,22 +762,3 @@ iframe{
   max-width:calc(100vw - 20px)!important;
   bottom:max(10px,env(safe-area-inset-bottom))!important;
 }
-
-
-/* AVYENA EN layout parity — 2026-10-08
-   Keep the English landing page visually aligned with the PT design while preserving EN SEO copy. */
-.lang-en .service-card{color:var(--text);text-decoration:none}
-.lang-en .service-card h3{color:var(--text)}
-.lang-en .service-card p{color:#d5daea}
-.lang-en .en-seo-section .container{max-width:1480px}
-.lang-en .en-seo-section .hero-copy{max-width:860px;margin-left:auto;margin-right:auto;text-align:center}
-.lang-en .en-seo-links{max-width:1040px;margin:22px auto 0;color:#d5daea;line-height:1.7;text-align:center}
-.lang-en .en-seo-links a{color:#d31cff;text-decoration-color:rgba(211,28,255,.55);text-underline-offset:3px}
-.lang-en .en-seo-links a:hover{color:#00e5ff;text-decoration-color:#00e5ff}
-@media(min-width:1351px){
-  .lang-en .service-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:1180px;margin-left:auto;margin-right:auto}
-  .lang-en .service-card{min-height:238px;padding:24px 20px}
-}
-@media(max-width:900px){
-  .lang-en .en-seo-section .hero-copy,.lang-en .en-seo-links{text-align:left}
-}
