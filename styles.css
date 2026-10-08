@@ -812,3 +812,5 @@ iframe{
 .hero-values>span{display:inline-flex;align-items:center;gap:8px}
 .hero-values .avy-icon{width:20px;height:20px}
 .service-modal-icon .avy-icon{width:52px;height:52px}
+
+.direct-item>span .avy-icon{width:26px;height:26px}
