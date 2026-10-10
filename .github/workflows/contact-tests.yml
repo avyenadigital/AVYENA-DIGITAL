@@ -1,0 +1,30 @@
+name: Contact form regression tests
+
+on:
+  pull_request:
+    paths:
+      - 'contact.js'
+      - 'tests/contact.test.mjs'
+      - '.github/workflows/contact-tests.yml'
+  push:
+    branches:
+      - 'audit/maintainability-2026-10'
+    paths:
+      - 'contact.js'
+      - 'tests/contact.test.mjs'
+      - '.github/workflows/contact-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  contact-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run isolated endpoint tests
+        run: node --test tests/contact.test.mjs
