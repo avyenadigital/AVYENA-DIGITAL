@@ -25,3 +25,7 @@
 - [ ] Confirmar plano de rollback na Vercel e domínio principal.
 - [ ] Não integrar na main até completar revisão funcional e visual.
 - [ ] **NÃO FAZER DEPLOY NESTA FASE.**
+
+## Revisão adicional
+- [x] Revisão estrutural do diff em relação à `main` (2026-10-10): 9 commits à frente, 0 atrás; 4 ficheiros adicionados (testes, CI e documentação), sem alterações a código público ou endpoint de produção.
+- [ ] Revisão funcional e visual por browser real ainda por executar. A tentativa de acesso automatizado ao domínio neste ambiente falhou por indisponibilidade de DNS; **não interpretar como falha do site**.
