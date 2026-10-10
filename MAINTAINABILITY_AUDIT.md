@@ -33,3 +33,9 @@ Estado: auditoria preliminar, **não certificada**. Branch de auditoria, sem alt
 - `app.js`: 257 linhas, 26.269 caracteres; concentra tradução e comportamentos da página. Avaliar modularização, não refatorizar sem testes visuais.
 - `styles.css`: 832 linhas, 46.875 caracteres; verificar regras repetidas/overrides e especificidade CSS, especialmente responsive.
 - **Não executado:** testes de segurança, carga, CI, validação em dispositivos. Nenhuma vulnerabilidade explorada ou confirmada.
+
+## Primeira suite de regressão adicionada
+- `tests/contact.test.mjs`: oito testes isolados para método HTTP, origem, validação, tamanho do pedido, honeypot e escaping HTML no envio Resend simulado.
+- Executar localmente com Node.js 20+: `node --test tests/contact.test.mjs`.
+- **Execução ainda não confirmada**. Os testes não são prova de segurança completa nem de integração real com Resend.
+- A implementação funcional de `contact.js` permanece inalterada. O rate limiting distribuído continua por resolver.
