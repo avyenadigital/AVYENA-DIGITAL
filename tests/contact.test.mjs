@@ -79,9 +79,9 @@ test('honeypot returns success without sending email', async () => {
 });
 test('valid request sends escaped email through Resend', async () => {
   const originalFetch = globalThis.fetch;
-  const originalKey = process.env.RESEND_API_KEY;
+  const originalKey = process.env['RESEND_API_KEY'];
   let payload;
-  process.env.RESEND_API_KEY = 'test-key-not-real';
+  process.env['RESEND_API_KEY'] = 'test-key-not-real';
   globalThis.fetch = async (_url, opts) => {
     payload = JSON.parse(opts.body);
     return { ok: true };
@@ -94,7 +94,7 @@ test('valid request sends escaped email through Resend', async () => {
     assert.ok(!payload.html.includes('<script>'));
   } finally {
     globalThis.fetch = originalFetch;
-    if (originalKey === undefined) delete process.env.RESEND_API_KEY;
-    else process.env.RESEND_API_KEY = originalKey;
+    if (originalKey === undefined) delete process.env['RESEND_API_KEY'];
+    else process.env['RESEND_API_KEY'] = originalKey;
   }
 });
