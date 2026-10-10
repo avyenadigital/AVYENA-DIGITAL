@@ -25,3 +25,11 @@ Estado: auditoria preliminar, **não certificada**. Branch de auditoria, sem alt
 
 ## Classificação
 **Não atribuída**: falta leitura integral dos módulos e testes de execução. Não confundir documentação criada com correção do código.
+
+
+## Inspeção adicional de código (2026-10-10)
+- `contact.js`: 249 linhas; contém validação de serviços, escape de HTML, allowlist de origem e limitação de pedidos por IP em `globalThis.__avyenaContactRateStore`. **Risco concreto:** a memória local de instância serverless não é um rate limiter global distribuído; não garante limite entre instâncias/restarts. Recomenda-se serviço partilhado (Redis/KV ou WAF/edge) e teste de abuso; não alterar sem testes e configuração.
+- `requestIp()` usa o primeiro valor de `x-forwarded-for`. Verificar o modelo de confiança de proxies da plataforma antes de depender deste header para segurança.
+- `app.js`: 257 linhas, 26.269 caracteres; concentra tradução e comportamentos da página. Avaliar modularização, não refatorizar sem testes visuais.
+- `styles.css`: 832 linhas, 46.875 caracteres; verificar regras repetidas/overrides e especificidade CSS, especialmente responsive.
+- **Não executado:** testes de segurança, carga, CI, validação em dispositivos. Nenhuma vulnerabilidade explorada ou confirmada.
