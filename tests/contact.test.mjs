@@ -14,16 +14,18 @@ function response() {
     json(payload) { this.payload = payload; return this; }
   };
 }
+let requestCount = 0;
 function request(body = {}, headers = {}, method = 'POST') {
+  const ip = `192.0.2.${++requestCount}`;
   return {
     method, body,
     headers: {
       'content-type': 'application/json',
       'x-requested-with': 'AVYENA-Contact',
-      'x-forwarded-for': '192.0.2.10',
+      'x-forwarded-for': ip,
       ...headers
     },
-    socket: { remoteAddress: '192.0.2.10' }
+    socket: { remoteAddress: ip }
   };
 }
 const valid = {
