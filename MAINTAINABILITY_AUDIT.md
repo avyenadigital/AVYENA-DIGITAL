@@ -39,3 +39,8 @@ Estado: auditoria preliminar, **não certificada**. Branch de auditoria, sem alt
 - Executar localmente com Node.js 20+: `node --test tests/contact.test.mjs`.
 - **Execução ainda não confirmada**. Os testes não são prova de segurança completa nem de integração real com Resend.
 - A implementação funcional de `contact.js` permanece inalterada. O rate limiting distribuído continua por resolver.
+
+## Automação de testes (2026-10-10)
+- Adicionado `.github/workflows/contact-tests.yml` para executar `node --test tests/contact.test.mjs` em push na branch de auditoria e PRs com alterações relevantes.
+- Não foi recebido resultado de execução de GitHub Actions; status **por confirmar**.
+- Não foram alterados `contact.js`, `app.js` ou CSS. Sem deploy.
