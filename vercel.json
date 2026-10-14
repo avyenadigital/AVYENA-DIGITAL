@@ -132,6 +132,14 @@
     {
       "src": "assets/icons/*.webp",
       "use": "@vercel/static"
+    },
+    {
+      "src": "editorial.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "editorial.js",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
