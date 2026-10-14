@@ -1,0 +1,6 @@
+{
+  "name": "avyena-campaign-tests",
+  "private": true,
+  "scripts": {"test": "node --test black-edition.test.cjs"},
+  "devDependencies": {"jsdom": "26.1.0"}
+}

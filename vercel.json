@@ -132,6 +132,26 @@
     {
       "src": "assets/icons/*.webp",
       "use": "@vercel/static"
+    },
+    {
+      "src": "black-edition.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "black-edition.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "black-edition-2026.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "en/black-edition-2026.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "black-edition-config.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -184,6 +204,10 @@
     {
       "src": "/en/?",
       "dest": "/en/index.html"
+    },
+    {
+      "src": "/api/black-edition",
+      "dest": "/black-edition-config.js"
     },
     {
       "handle": "filesystem"
