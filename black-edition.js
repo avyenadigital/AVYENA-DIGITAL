@@ -77,7 +77,15 @@
   }
   function blocked() {
     const el = document.activeElement;
-    return document.hidden || !!document.querySelector('#avyena-cookie-consent, dialog[open], [aria-modal="true"]:not([hidden])') || !!el?.matches('input, textarea, select, [contenteditable="true"]');
+    const visibleOverlay = [...document.querySelectorAll('#avyena-cookie-consent, dialog[open], [aria-modal="true"]')].some(overlay => {
+      for (let node = overlay; node instanceof Element; node = node.parentElement) {
+        if (node.hidden || node.getAttribute('aria-hidden') === 'true') return false;
+        const style = getComputedStyle(node);
+        if (style.display === 'none' || style.visibility === 'hidden') return false;
+      }
+      return true;
+    });
+    return document.hidden || visibleOverlay || !!el?.matches('input, textarea, select, [contenteditable="true"]');
   }
   function schedule() {
     if (!active() || dismissed()) return;

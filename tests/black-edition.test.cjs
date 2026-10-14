@@ -175,3 +175,14 @@ test('Vercel assets/routes preserve CSP and all service values are accepted', ()
   for (const option of dom.window.document.querySelectorAll('option[value]')) if (option.value) assert.ok(read('contact.js').includes(`'${option.value}'`));
   dom.window.close();
 });
+
+test('real homepage hidden service-modal ancestor does not block presentation', async () => {
+  const c=await client({html:read('index.html')});
+  await c.tick(3000); assert.ok(c.doc.querySelector('dialog.be-dialog')?.open); c.close();
+});
+test('CSS-hidden ancestor does not block, visible existing modal still defers', async () => {
+  for (const hidden of [true,false]) {
+    const c=await client({html:`<html><body><header class="site-header"></header><div style="display:${hidden ? 'none' : 'block'}"><section aria-modal="true"></section></div></body></html>`});
+    await c.tick(3000); assert.equal(!!c.doc.querySelector('dialog.be-dialog')?.open,hidden); c.close();
+  }
+});

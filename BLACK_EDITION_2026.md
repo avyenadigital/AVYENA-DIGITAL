@@ -20,7 +20,7 @@ Branch: `feature/black-edition-2026`. Do not merge or deploy to production witho
 
 `npm ci --prefix tests && npm test --prefix tests`
 
-16 automated tests passed (Node + jsdom; no real browser engine):
+18 automated tests passed (Node + jsdom; no real browser engine):
 
 1. Start/end boundaries, preview versus production and endpoint method.
 2. 3-second opening and 8-second dismissal.
@@ -40,6 +40,9 @@ Branch: `feature/black-edition-2026`. Do not merge or deploy to production witho
 16. Vercel build entries, routing order, retained CSP and accepted service values.
 
 JavaScript syntax and `git diff --check` passed. No inline scripts/styles or third-party campaign libraries were added. Existing CSP and contact backend remain unchanged.
+
+17. Real homepage: hidden service-dialog ancestor does not block campaign opening.
+18. CSS-hidden overlays are ignored; visible overlays continue to defer opening.
 
 ## Required validation before production
 
