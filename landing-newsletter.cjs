@@ -3,6 +3,7 @@ const BASE = 'https://www.avyena.pt';
 const SEGMENT = '179db3a5-e00c-4d4f-9c1f-ae2531170ef5';
 const VERSION = '2026-10-18';
 const limits = new Map();
+const apiKey = () => process.env.NEWSLETTER_RESEND_API_KEY || process.env.RESEND_API_KEY;
 const key = () => process.env.NEWSLETTER_SIGNING_SECRET;
 const sign = value => crypto.createHmac('sha256', key()).update(value).digest('base64url');
 const validEmail = value => typeof value === 'string' && value.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
@@ -23,7 +24,7 @@ function verify(value) {
   } catch { return null; }
 }
 async function api(path, method='GET', body, idempotency) {
-  const response=await fetch('https://api.resend.com'+path,{method,signal:AbortSignal.timeout(10000),headers:{Authorization:'Bearer '+process.env.RESEND_API_KEY,'Content-Type':'application/json',...(idempotency?{'Idempotency-Key':idempotency}:{})},...(body?{body:JSON.stringify(body)}:{})});
+  const response=await fetch('https://api.resend.com'+path,{method,signal:AbortSignal.timeout(10000),headers:{Authorization:'Bearer '+apiKey(),'Content-Type':'application/json',...(idempotency?{'Idempotency-Key':idempotency}:{})},...(body?{body:JSON.stringify(body)}:{})});
   if(response.status===404&&method==='GET')return null;
   if(!response.ok)throw new Error('Newsletter provider status '+response.status);
   return response.json();
@@ -54,7 +55,7 @@ module.exports=async function handler(req,res){
   if(d.website)return res.status(200).json({ok:true});
   const ip=String(req.headers['x-forwarded-for']||req.socket?.remoteAddress||'unknown').split(',')[0];
   if(limited('ip:'+ip,12,60000))return res.status(429).json({error:'Aguarde um minuto antes de voltar a tentar.'});
-  if(!key()||!process.env.RESEND_API_KEY)return res.status(503).json({error:'Serviço temporariamente indisponível.'});
+  if(!key()||!apiKey())return res.status(503).json({error:'Serviço temporariamente indisponível.'});
   if(action==='subscribe'){
    const email=String(d.email||'').trim().toLowerCase();
    if(!validEmail(email)||d.consent!==true)return res.status(400).json({error:'Confirme o email e a autorização para receber a newsletter.'});
