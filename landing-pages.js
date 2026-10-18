@@ -40,7 +40,7 @@
         note.textContent = 'O guia está disponível abaixo. Pode abri-lo e guardá-lo.';
         if (wantsNewsletter) {
           try {
-            const nr = await fetch('/api/landing-newsletter?action=subscribe', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:body.email,consent:true,website:body.website})});
+            const nr = await fetch('/api/landing-newsletter?action=subscribe', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:body.email,consent:true,website:body.website,source:'guia-gratuito',lang:'pt'})});
             if (!nr.ok) throw Error();
             note.textContent += ' Enviámos também um email para confirmar a newsletter.';
           } catch { note.textContent += ' Não foi possível iniciar a subscrição da newsletter. O acesso ao guia está disponível.'; }

@@ -25,6 +25,12 @@ jobs:
           node --check privacy.js
           node --check terms.js
 
+      - name: Verify newsletter and landing flows
+        run: |
+          node --check newsletter-form.js
+          node tests/newsletter.test.cjs
+          node tests/landing-pages.test.mjs
+
       - name: Validate JSON
         run: node -e "JSON.parse(require('fs').readFileSync('vercel.json','utf8')); console.log('vercel.json OK')"
 

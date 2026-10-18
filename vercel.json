@@ -172,6 +172,18 @@
     {
       "src": "landing-newsletter.cjs",
       "use": "@vercel/node"
+    },
+    {
+      "src": "newsletter.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "newsletter-form.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "newsletter.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -280,6 +292,14 @@
     {
       "src": "/api/landing-newsletter",
       "dest": "/landing-newsletter.cjs"
+    },
+    {
+      "src": "/api/newsletter",
+      "dest": "/landing-newsletter.cjs"
+    },
+    {
+      "src": "/newsletter/?",
+      "dest": "/newsletter.html"
     },
     {
       "handle": "filesystem"
