@@ -132,6 +132,46 @@
     {
       "src": "assets/icons/*.webp",
       "use": "@vercel/static"
+    },
+    {
+      "src": "diagnostico-digital.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "criacao-websites.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "guia-gratuito.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "black-friday.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "guia-presenca-digital.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "landing-pages.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "landing-pages.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "landing-contact.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "landing-campaign.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "landing-newsletter.cjs",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -184,6 +224,62 @@
     {
       "src": "/en/?",
       "dest": "/en/index.html"
+    },
+    {
+      "src": "/diagnostico-digital/?",
+      "dest": "/diagnostico-digital.html"
+    },
+    {
+      "src": "/criacao-websites/?",
+      "dest": "/criacao-websites.html"
+    },
+    {
+      "src": "/guia-gratuito/?",
+      "dest": "/guia-gratuito.html"
+    },
+    {
+      "src": "/black-friday/?",
+      "dest": "/black-friday.html"
+    },
+    {
+      "src": "/diagnostico-digital\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/diagnostico-digital"
+      }
+    },
+    {
+      "src": "/criacao-websites\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/criacao-websites"
+      }
+    },
+    {
+      "src": "/guia-gratuito\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/guia-gratuito"
+      }
+    },
+    {
+      "src": "/black-friday\\.html",
+      "status": 308,
+      "headers": {
+        "Location": "/black-friday"
+      }
+    },
+    {
+      "src": "/api/landing-contact",
+      "dest": "/landing-contact.js"
+    },
+    {
+      "src": "/api/landing-campaign",
+      "dest": "/landing-campaign.js"
+    },
+    {
+      "src": "/api/landing-newsletter",
+      "dest": "/landing-newsletter.cjs"
     },
     {
       "handle": "filesystem"
