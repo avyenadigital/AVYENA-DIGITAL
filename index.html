@@ -77,6 +77,7 @@
 }
 </script>
   <script src="analytics.js" defer></script>
+<link rel="stylesheet" href="/newsletter.css">
 </head>
 <body>
   <canvas id="network" aria-hidden="true"></canvas>
@@ -319,6 +320,7 @@
     </section>
   </div>
 
+  <section id="newsletter" class="insights-section" aria-labelledby="insights-title"><div class="container insights-inner"><div><p class="insights-kicker">AVYENA INSIGHTS</p><h2 id="insights-title">Boas ideias também chegam por email.</h2><p>Subscreva a nossa newsletter e acompanhe as novidades da AVYENA Digital. Partilhamos projetos, tendências e ideias que podem fazer a diferença no seu negócio.</p></div><form class="insights-form" data-newsletter-form><label for="insights-email">O seu email</label><div class="insights-input-row"><input id="insights-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="exemplo@empresa.pt" required><button class="pill pill-primary" type="submit">Subscrever <span aria-hidden="true">→</span></button></div><label class="insights-consent"><input type="checkbox" name="consent" required> Aceito receber a newsletter da AVYENA Digital. Posso cancelar a qualquer momento. <a href="/privacy-cookies.html">Privacidade</a></label><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="insights-note" role="status" aria-live="polite"></p></form></div></section>
   <footer class="footer">
     <div class="container footer-inner">
       <span>© 2026 AVYENA Digital. <span data-i18n="footer.rights">Todos os direitos reservados.</span></span>
@@ -328,5 +330,6 @@
   <a class="to-top" href="#inicio" aria-label="Voltar ao topo" data-i18n-top>↑</a>
 
   <script src="app.js"></script>
+<script src="/newsletter-form.js" defer></script>
 </body>
 </html>
