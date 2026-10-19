@@ -73,3 +73,6 @@ jobs:
           grep -q 'x-requested-with' contact.js
           grep -q 'escapeHtml' contact.js
           echo 'Contact endpoint safeguards OK'
+
+      - name: Verify SEO and multilingual discovery
+        run: node tests/seo.test.mjs
