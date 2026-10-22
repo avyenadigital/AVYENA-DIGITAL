@@ -24,7 +24,10 @@ globalThis.fetch=async()=>({ok:false});assert.equal((await run({source:'guia-gra
 const cfg=JSON.parse(fs.readFileSync('vercel.json'));const files=new Set(cfg.builds.map(x=>x.src));
 for(const slug of ['diagnostico-digital','criacao-websites','guia-gratuito','black-friday']){
  assert(files.has(slug+'.html'));assert(cfg.routes.some(x=>x.src==='/'+slug+'/?'&&x.dest==='/'+slug+'.html'));
- const html=fs.readFileSync(slug+'.html','utf8');assert(!/<(?:script|style)[^>]*>\s*[^<\s]/.test(html));assert(!/style=/.test(html));assert.equal((html.match(/<h1>/g)||[]).length,1);
+ const html=fs.readFileSync(slug+'.html','utf8');
+ // JSON-LD is a non-executable data block, unlike inline JavaScript or CSS.
+ const executableHtml=html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,(_,json)=>{JSON.parse(json);return '';});
+ assert(!/<(?:script|style)[^>]*>\s*[^<\s]/.test(executableHtml));assert(!/style=/.test(html));assert.equal((html.match(/<h1>/g)||[]).length,1);
  for(const [,path] of html.matchAll(/(?:src|href)="(\/[^"#?]+)(?:[?#][^"]*)?"/g))if(!['/','/diagnostico-digital'].includes(path)&&/\.[a-z]+$/.test(path))assert(fs.existsSync('.'+path),'Missing '+path);
  assert(!/black.edition/i.test(html));
 }
